@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1ADAF8118F3349C00B13AA7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */; };
 		B1F18A6918F3292900D91054 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6818F3292900D91054 /* Foundation.framework */; };
 		B1F18A6B18F3292900D91054 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6A18F3292900D91054 /* CoreGraphics.framework */; };
 		B1F18A6D18F3292900D91054 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6C18F3292900D91054 /* UIKit.framework */; };
@@ -19,6 +20,8 @@
 		B1F18A8418F3292900D91054 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6C18F3292900D91054 /* UIKit.framework */; };
 		B1F18A8C18F3292900D91054 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1F18A8A18F3292900D91054 /* InfoPlist.strings */; };
 		B1F18A8E18F3292900D91054 /* AJSeeEveryViewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F18A8D18F3292900D91054 /* AJSeeEveryViewsTests.m */; };
+		B1F18A9B18F32C4600D91054 /* AJSeeEveryViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F18A9A18F32C4600D91054 /* AJSeeEveryViewsController.m */; };
+		B1F18A9E18F32FAA00D91054 /* AJSeeEveryViews.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F18A9D18F32FAA00D91054 /* AJSeeEveryViews.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B1F18A6518F3292900D91054 /* AJSeeEveryViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJSeeEveryViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F18A6818F3292900D91054 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1F18A6A18F3292900D91054 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +52,10 @@
 		B1F18A8918F3292900D91054 /* AJSeeEveryViewsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AJSeeEveryViewsTests-Info.plist"; sourceTree = "<group>"; };
 		B1F18A8B18F3292900D91054 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1F18A8D18F3292900D91054 /* AJSeeEveryViewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJSeeEveryViewsTests.m; sourceTree = "<group>"; };
+		B1F18A9918F32C4600D91054 /* AJSeeEveryViewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSeeEveryViewsController.h; sourceTree = "<group>"; };
+		B1F18A9A18F32C4600D91054 /* AJSeeEveryViewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSeeEveryViewsController.m; sourceTree = "<group>"; };
+		B1F18A9C18F32FAA00D91054 /* AJSeeEveryViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJSeeEveryViews.h; path = ../ViewConrollers/AJSeeEveryViews.h; sourceTree = "<group>"; };
+		B1F18A9D18F32FAA00D91054 /* AJSeeEveryViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AJSeeEveryViews.m; path = ../ViewConrollers/AJSeeEveryViews.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1ADAF8118F3349C00B13AA7 /* QuartzCore.framework in Frameworks */,
 				B1F18A6B18F3292900D91054 /* CoreGraphics.framework in Frameworks */,
 				B1F18A6D18F3292900D91054 /* UIKit.framework in Frameworks */,
 				B1F18A6918F3292900D91054 /* Foundation.framework in Frameworks */,
@@ -74,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1ADAF8218F3426300B13AA7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocols;
+			path = AJSeeEveryViews/Protocols;
+			sourceTree = "<group>";
+		};
 		B1F18A5C18F3292900D91054 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +113,7 @@
 		B1F18A6718F3292900D91054 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */,
 				B1F18A6818F3292900D91054 /* Foundation.framework */,
 				B1F18A6A18F3292900D91054 /* CoreGraphics.framework */,
 				B1F18A6C18F3292900D91054 /* UIKit.framework */,
@@ -107,6 +125,10 @@
 		B1F18A6E18F3292900D91054 /* AJSeeEveryViews */ = {
 			isa = PBXGroup;
 			children = (
+				B1F18A9F18F32FB300D91054 /* Views */,
+				B1F18A9818F32A2700D91054 /* ViewControllers */,
+				B1ADAF8218F3426300B13AA7 /* Protocols */,
+				B1F18A9718F32A0100D91054 /* Example */,
 				B1F18A7718F3292900D91054 /* AJAppDelegate.h */,
 				B1F18A7818F3292900D91054 /* AJAppDelegate.m */,
 				B1F18A7A18F3292900D91054 /* Images.xcassets */,
@@ -142,6 +164,33 @@
 				B1F18A8A18F3292900D91054 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1F18A9718F32A0100D91054 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		B1F18A9818F32A2700D91054 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1F18A9918F32C4600D91054 /* AJSeeEveryViewsController.h */,
+				B1F18A9A18F32C4600D91054 /* AJSeeEveryViewsController.m */,
+			);
+			name = ViewControllers;
+			path = AJSeeEveryViews/ViewConrollers;
+			sourceTree = "<group>";
+		};
+		B1F18A9F18F32FB300D91054 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1F18A9C18F32FAA00D91054 /* AJSeeEveryViews.h */,
+				B1F18A9D18F32FAA00D91054 /* AJSeeEveryViews.m */,
+			);
+			name = Views;
+			path = AJSeeEveryViews/Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +290,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1F18A7518F3292900D91054 /* main.m in Sources */,
+				B1F18A9E18F32FAA00D91054 /* AJSeeEveryViews.m in Sources */,
 				B1F18A7918F3292900D91054 /* AJAppDelegate.m in Sources */,
+				B1F18A9B18F32C4600D91054 /* AJSeeEveryViewsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +489,7 @@
 				B1F18A9318F3292900D91054 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B1F18A9418F3292900D91054 /* Build configuration list for PBXNativeTarget "AJSeeEveryViewsTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +498,7 @@
 				B1F18A9618F3292900D91054 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
