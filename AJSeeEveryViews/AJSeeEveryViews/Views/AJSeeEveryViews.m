@@ -48,6 +48,7 @@
     _mainScrollView.frame = mainScrollViewFrame;
     _mainScrollView.pagingEnabled = YES;
     _mainScrollView.backgroundColor = [UIColor greenColor];
+    _mainScrollView.showsHorizontalScrollIndicator = NO;
 }
 
 #pragma mark - public
