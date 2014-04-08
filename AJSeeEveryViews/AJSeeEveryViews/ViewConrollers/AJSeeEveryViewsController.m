@@ -57,7 +57,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
     [self setMainViews];
 }
 
@@ -71,7 +75,7 @@
 
 - (void)setMainViews {
     [_viewController enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        //TODO
+        [_v pushMainView:((UIViewController*)obj).view];
     }];
 }
 

@@ -13,6 +13,8 @@
 
 @interface AJSeeEveryViews ()
 
+@property (nonatomic, strong) NSMutableArray *mainViews;
+
 @end
 
 @implementation AJSeeEveryViews
@@ -28,6 +30,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self initialization];
+
+        _mainViews = [[NSMutableArray alloc] init];
         
         _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
         [self addSubview:_mainScrollView];
@@ -44,6 +48,20 @@
     _mainScrollView.frame = mainScrollViewFrame;
     _mainScrollView.pagingEnabled = YES;
     _mainScrollView.backgroundColor = [UIColor greenColor];
+}
+
+#pragma mark - public
+
+- (void)pushMainView:(UIView*)view {
+    [_mainViews addObject:view];
+
+    CGRect frame = _mainScrollView.bounds;
+    frame.origin.x = ([_mainViews count] - 1) * CGRectGetWidth(_mainScrollView.frame);
+    view.frame = frame;
+
+    [_mainScrollView addSubview:view];
+
+    _mainScrollView.contentSize = CGSizeMake(CGRectGetMaxX(view.frame), CGRectGetHeight(_mainScrollView.frame));
 }
 
 #pragma mark - Setter

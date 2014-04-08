@@ -19,4 +19,6 @@
 
 @property (nonatomic, assign) CGFloat subViewsProportion UI_APPEARANCE_SELECTOR;
 
+- (void)pushMainView:(UIView*)view;
+
 @end
