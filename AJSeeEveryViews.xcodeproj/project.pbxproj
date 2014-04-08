@@ -54,8 +54,8 @@
 		B1F18A8D18F3292900D91054 /* AJSeeEveryViewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJSeeEveryViewsTests.m; sourceTree = "<group>"; };
 		B1F18A9918F32C4600D91054 /* AJSeeEveryViewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSeeEveryViewsController.h; sourceTree = "<group>"; };
 		B1F18A9A18F32C4600D91054 /* AJSeeEveryViewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSeeEveryViewsController.m; sourceTree = "<group>"; };
-		B1F18A9C18F32FAA00D91054 /* AJSeeEveryViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJSeeEveryViews.h; path = ../ViewConrollers/AJSeeEveryViews.h; sourceTree = "<group>"; };
-		B1F18A9D18F32FAA00D91054 /* AJSeeEveryViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AJSeeEveryViews.m; path = ../ViewConrollers/AJSeeEveryViews.m; sourceTree = "<group>"; };
+		B1F18A9C18F32FAA00D91054 /* AJSeeEveryViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSeeEveryViews.h; sourceTree = "<group>"; };
+		B1F18A9D18F32FAA00D91054 /* AJSeeEveryViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSeeEveryViews.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
