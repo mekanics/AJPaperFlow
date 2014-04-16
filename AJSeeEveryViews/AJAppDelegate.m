@@ -8,11 +8,13 @@
 
 #import "AJAppDelegate.h"
 #import "AJSeeEveryViewsController.h"
+#import "AJSeeEveryViewsProtocol.h"
+#import "AJDummyViewController.h"
 
 @implementation AJAppDelegate
 
-UIViewController*(^dummyViewController)(NSString*) = ^(NSString* title) {
-    UIViewController *vc = [UIViewController new];
+AJDummyViewController*(^dummyMainViewController)(NSString*) = ^(NSString* title) {
+    AJDummyViewController *vc = [AJDummyViewController new];
     vc.view.backgroundColor = [UIColor colorWithHue:(arc4random() % 255 / 255.0) saturation:0.7 brightness:0.7 alpha:1.0];
     
     vc.title = title;
@@ -20,6 +22,7 @@ UIViewController*(^dummyViewController)(NSString*) = ^(NSString* title) {
     UILabel *lbl = [[UILabel alloc] init];
     lbl.text = title;
     [lbl sizeToFit];
+    lbl.frame = CGRectOffset(lbl.frame, 20, 20);
     [vc.view addSubview:lbl];
     
     return vc;
@@ -31,8 +34,8 @@ UIViewController*(^dummyViewController)(NSString*) = ^(NSString* title) {
     
     
     AJSeeEveryViewsController *exampleCV = [[AJSeeEveryViewsController alloc] initWithViewControllers:@[
-                                                                                                        dummyViewController(@"View 1"),
-                                                                                                        dummyViewController(@"View 2")]];
+                                                                                                        dummyMainViewController(@"View 1"),
+                                                                                                        dummyMainViewController(@"View 2")]];
     self.window.rootViewController = exampleCV;
     
     [self.window makeKeyAndVisible];

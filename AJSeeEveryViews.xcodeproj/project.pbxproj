@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B10CCF3518FEE44600E9C01A /* AJDummyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B10CCF3418FEE44600E9C01A /* AJDummyViewController.m */; };
 		B1ADAF8118F3349C00B13AA7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */; };
 		B1F18A6918F3292900D91054 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6818F3292900D91054 /* Foundation.framework */; };
 		B1F18A6B18F3292900D91054 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6A18F3292900D91054 /* CoreGraphics.framework */; };
@@ -35,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B10CCF3218FEE38A00E9C01A /* AJSeeEveryViewsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSeeEveryViewsProtocol.h; sourceTree = "<group>"; };
+		B10CCF3318FEE44600E9C01A /* AJDummyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJDummyViewController.h; sourceTree = "<group>"; };
+		B10CCF3418FEE44600E9C01A /* AJDummyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJDummyViewController.m; sourceTree = "<group>"; };
 		B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B1F18A6518F3292900D91054 /* AJSeeEveryViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJSeeEveryViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F18A6818F3292900D91054 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,6 +90,7 @@
 		B1ADAF8218F3426300B13AA7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				B10CCF3218FEE38A00E9C01A /* AJSeeEveryViewsProtocol.h */,
 			);
 			name = Protocols;
 			path = AJSeeEveryViews/Protocols;
@@ -169,6 +174,8 @@
 		B1F18A9718F32A0100D91054 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				B10CCF3318FEE44600E9C01A /* AJDummyViewController.h */,
+				B10CCF3418FEE44600E9C01A /* AJDummyViewController.m */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -292,6 +299,7 @@
 				B1F18A7518F3292900D91054 /* main.m in Sources */,
 				B1F18A9E18F32FAA00D91054 /* AJSeeEveryViews.m in Sources */,
 				B1F18A7918F3292900D91054 /* AJAppDelegate.m in Sources */,
+				B10CCF3518FEE44600E9C01A /* AJDummyViewController.m in Sources */,
 				B1F18A9B18F32C4600D91054 /* AJSeeEveryViewsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

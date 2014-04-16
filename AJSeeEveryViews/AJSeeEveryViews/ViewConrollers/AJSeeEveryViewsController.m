@@ -8,11 +8,14 @@
 
 #import "AJSeeEveryViewsController.h"
 #import "AJSeeEveryViews.h"
+#import "AJSeeEveryViewsProtocol.h"
 
 @interface AJSeeEveryViewsController ()
 
-@property (nonatomic, strong) NSMutableArray *viewController;
+@property (nonatomic, strong) NSMutableArray *viewControllers;
 @property (nonatomic, strong) AJSeeEveryViews *v;
+@property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, strong) UIViewController<AJSeeEveryViewsProtocol> *currentMainViewController;
 
 @end
 
@@ -28,7 +31,7 @@
     if (self) {
         [self initialization];
         
-        _viewController = [NSMutableArray new];
+        _viewControllers = [NSMutableArray new];
         
     }
     return self;
@@ -39,7 +42,7 @@
     if (self) {
         [self initialization];
         
-        _viewController = [NSMutableArray arrayWithArray:viewControllers];
+        _viewControllers = [NSMutableArray arrayWithArray:viewControllers];
     }
     return self;
 }
@@ -66,7 +69,9 @@
 }
 
 - (void)addViewController:(UIViewController *)viewController {
+    NSAssert([viewController conformsToProtocol:@protocol(AJSeeEveryViewsProtocol)], @"The viewcController doesn't conform to the protocol 'AJSeeEveryViewsProtocol'");
     
+    [_v pushMainView:viewController.view];
 }
 
 - (void)insertViewController:(UIViewController *)viewController atIndex:(NSInteger)index {
@@ -74,13 +79,37 @@
 }
 
 - (void)setMainViews {
-    [_viewController enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [_viewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSAssert([obj conformsToProtocol:@protocol(AJSeeEveryViewsProtocol)], @"The viewcController doesn't conform to the protocol 'AJSeeEveryViewsProtocol'");
+        
         [_v pushMainView:((UIViewController*)obj).view];
     }];
 }
 
+- (void)setSubViewsOfViewController:(UIViewController<AJSeeEveryViewsProtocol>*)mainViewController {
+    
+}
+
+#pragma mark Setter
+
+- (void)setCurrentMainViewController:(UIViewController<AJSeeEveryViewsProtocol> *)currentMainViewController {
+    if (_currentMainViewController == currentMainViewController) return;
+    
+    _currentMainViewController = currentMainViewController;
+    
+    [self setSubViewsOfViewController:(UIViewController<AJSeeEveryViewsProtocol> *)_currentMainViewController];
+}
+
 #pragma mark - UIScrollViewDelegate
 
-// ... 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat pageWidth = scrollView.frame.size.width;
+    _currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    NSLog(@"current page: %ld", (long)_currentPage);
+
+    if ([_viewControllers count] < _currentPage) return;
+    
+    self.currentMainViewController = [_viewControllers objectAtIndex:_currentPage];
+}
 
 @end
