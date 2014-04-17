@@ -83,11 +83,17 @@
         NSAssert([obj conformsToProtocol:@protocol(AJSeeEveryViewsProtocol)], @"The viewcController doesn't conform to the protocol 'AJSeeEveryViewsProtocol'");
         
         [_v pushMainView:((UIViewController*)obj).view];
+        
+        if (!idx) [self setSubViewsOfViewController:obj];
     }];
 }
 
 - (void)setSubViewsOfViewController:(UIViewController<AJSeeEveryViewsProtocol>*)mainViewController {
+    [_v removeSubViews];
     
+    [mainViewController.subViewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [_v pushSubView:((UIViewController*)obj).view];
+    }];
 }
 
 #pragma mark Setter

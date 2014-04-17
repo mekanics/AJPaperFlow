@@ -11,6 +11,7 @@
 @interface AJSeeEveryViews : UIView
 
 @property (nonatomic, strong) UIScrollView *mainScrollView;
+@property (nonatomic, strong) UIScrollView *subScrollView;
 
 
 @property (nonatomic, assign) BOOL roundedCorner UI_APPEARANCE_SELECTOR;
@@ -20,5 +21,8 @@
 @property (nonatomic, assign) CGFloat subViewsProportion UI_APPEARANCE_SELECTOR;
 
 - (void)pushMainView:(UIView*)view;
+
+- (void)pushSubView:(UIView*)view;
+- (void)removeSubViews;
 
 @end

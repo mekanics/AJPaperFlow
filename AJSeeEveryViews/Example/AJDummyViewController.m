@@ -36,10 +36,10 @@ UIViewController*(^dummyViewController)(NSString*) = ^(NSString* title) {
 }
 
 - (NSArray *)subViewControllers {
-    NSArray *subVC = @[dummyViewController(@"subview 1"),
-                       dummyViewController(@"subview 2"),
-                       dummyViewController(@"subview 3"),
-                       dummyViewController(@"subview 4")];
+    NSArray *subVC = @[dummyViewController([NSString stringWithFormat:@"%@ - %@", self.title, @"subview 1"]),
+                       dummyViewController([NSString stringWithFormat:@"%@ - %@", self.title, @"subview 2"]),
+                       dummyViewController([NSString stringWithFormat:@"%@ - %@", self.title, @"subview 3"]),
+                       dummyViewController([NSString stringWithFormat:@"%@ - %@", self.title, @"subview 4"])];
     
     return subVC;
 }

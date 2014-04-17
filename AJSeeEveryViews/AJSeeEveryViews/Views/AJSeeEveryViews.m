@@ -14,6 +14,7 @@
 @interface AJSeeEveryViews ()
 
 @property (nonatomic, strong) NSMutableArray *mainViews;
+@property (nonatomic, strong) NSMutableArray *subViews;
 
 @end
 
@@ -32,9 +33,13 @@
         [self initialization];
 
         _mainViews = [[NSMutableArray alloc] init];
+        _subViews = [[NSMutableArray alloc] init];
         
         _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
         [self addSubview:_mainScrollView];
+        
+        _subScrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
+        [self addSubview:_subScrollView];
     }
     return self;
 }
@@ -49,20 +54,47 @@
     _mainScrollView.pagingEnabled = YES;
     _mainScrollView.backgroundColor = [UIColor greenColor];
     _mainScrollView.showsHorizontalScrollIndicator = NO;
+    
+    
+    CGRect subScrollViewFrame = CGRectMake(0, CGRectGetMaxY(mainScrollViewFrame) - kOverlap, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) * _subViewsProportion);
+    _subScrollView.frame = subScrollViewFrame;
+    _subScrollView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
 }
 
 #pragma mark - public
 
 - (void)pushMainView:(UIView*)view {
-    [_mainViews addObject:view];
-
     CGRect frame = _mainScrollView.bounds;
-    frame.origin.x = ([_mainViews count] - 1) * CGRectGetWidth(_mainScrollView.frame);
+    frame.origin.x = [_mainViews count] * CGRectGetWidth(_mainScrollView.frame);
     view.frame = frame;
 
     [_mainScrollView addSubview:view];
 
     _mainScrollView.contentSize = CGSizeMake(CGRectGetMaxX(view.frame), CGRectGetHeight(_mainScrollView.frame));
+
+    [_mainViews addObject:view];
+}
+
+- (void)pushSubView:(UIView *)view {
+    CGRect frame = _subScrollView.bounds;
+    frame.origin.x = CGRectGetMaxX(((UIView*)[_subViews lastObject]).frame) + 1;
+    frame.size.width = CGRectGetWidth(self.frame) * _subViewsProportion;
+    view.frame = frame;
+    view.layer.cornerRadius = _cornerRadius;
+    
+    [_subScrollView addSubview:view];
+    
+    _subScrollView.contentSize = CGSizeMake(CGRectGetMaxX(view.frame), CGRectGetHeight(_subScrollView.frame));
+    
+    [_subViews addObject:view];
+}
+
+- (void)removeSubViews {
+    [_subViews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [(UIView*)obj removeFromSuperview];
+    }];
+    
+    [_subViews removeAllObjects];
 }
 
 #pragma mark - Setter
@@ -71,6 +103,11 @@
     _roundedCorner = roundedCorner;
     
     self.layer.cornerRadius = _roundedCorner ? _cornerRadius : 0;
+    
+    [_subViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        UIView *currentView = (UIView*)obj;
+        currentView.layer.cornerRadius = _cornerRadius;
+    }];
 }
 
 - (void)setCornerRadius:(CGFloat)cornerRadius {
