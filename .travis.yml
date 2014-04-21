@@ -1,4 +1,4 @@
 language: objective-c
 xcode_project: AJSeeEveryViews.xcodeproj
 xcode_scheme: AJSeeEveryViews
-xcode_sdk: iphonesimulator7.1
+xcode_sdk: iphonesimulator7.0
