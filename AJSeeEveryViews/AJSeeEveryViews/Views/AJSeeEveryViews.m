@@ -47,18 +47,15 @@
 - (void)layoutSubviews {
     self.layer.cornerRadius = _roundedCorner ? _cornerRadius : 0;
     self.layer.masksToBounds = YES;
-    self.backgroundColor = [UIColor redColor]; //TODO: clearColor
     
     CGRect mainScrollViewFrame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) * (1.0-_subViewsProportion) + kOverlap);
     _mainScrollView.frame = mainScrollViewFrame;
     _mainScrollView.pagingEnabled = YES;
-    _mainScrollView.backgroundColor = [UIColor greenColor];
     _mainScrollView.showsHorizontalScrollIndicator = NO;
     
     
     CGRect subScrollViewFrame = CGRectMake(0, CGRectGetMaxY(mainScrollViewFrame) - kOverlap, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) * _subViewsProportion);
     _subScrollView.frame = subScrollViewFrame;
-    _subScrollView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
 }
 
 #pragma mark - public
@@ -76,10 +73,12 @@
 }
 
 - (void)pushSubView:(UIView *)view {
-    CGRect frame = _subScrollView.bounds;
+    CGRect frame = self.bounds;
     frame.origin.x = CGRectGetMaxX(((UIView*)[_subViews lastObject]).frame) + 1;
-    frame.size.width = CGRectGetWidth(self.frame) * _subViewsProportion;
+    frame.size.width = CGRectGetWidth(self.frame);
     view.frame = frame;
+    [self minimizeView:view];
+    
     view.layer.cornerRadius = _cornerRadius;
     
     [_subScrollView addSubview:view];
@@ -96,6 +95,31 @@
     
     [_subViews removeAllObjects];
 }
+
+#pragma mark - 
+
+- (void)minimizeView:(UIView*)view {
+    CGRect frame = view.frame;
+    
+    CGAffineTransform transform = CGAffineTransformMakeScale(_subViewsProportion, _subViewsProportion);
+    view.transform = transform;
+    
+    frame.size.width = CGRectGetWidth(view.frame);
+    frame.size.height = CGRectGetHeight(view.frame);
+    view.frame = frame;
+}
+
+- (void)maximizeView:(UIView*)view {
+    CGRect frame = view.frame;
+    
+    CGAffineTransform transform = CGAffineTransformMakeScale(1/_subViewsProportion, 1/_subViewsProportion);
+    view.transform = transform;
+    
+    frame.size.width = CGRectGetWidth(view.frame);
+    frame.size.height = CGRectGetHeight(view.frame);
+    view.frame = frame;
+}
+
 
 #pragma mark - Setter
 

@@ -84,7 +84,8 @@
         
         [_v pushMainView:((UIViewController*)obj).view];
         
-        if (!idx) [self setSubViewsOfViewController:obj];
+        if (!idx) [self setCurrentMainViewController:obj];
+        
     }];
 }
 
