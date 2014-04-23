@@ -15,7 +15,7 @@
 
 AJDummyViewController*(^dummyMainViewController)(NSString*) = ^(NSString* title) {
     AJDummyViewController *vc = [AJDummyViewController new];
-    vc.view.backgroundColor = [UIColor colorWithHue:(arc4random() % 255 / 255.0) saturation:0.7 brightness:0.7 alpha:1.0];
+    vc.view.backgroundColor = [UIColor colorWithHue:(arc4random() % 255 / 255.0) saturation:0.6 brightness:0.6 alpha:1.0];
     
     vc.title = title;
 
