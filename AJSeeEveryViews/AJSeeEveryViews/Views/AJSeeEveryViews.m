@@ -45,7 +45,6 @@
 }
 
 - (void)layoutSubviews {
-    self.layer.cornerRadius = _roundedCorner ? _cornerRadius : 0;
     self.layer.masksToBounds = YES;
     
     CGRect mainScrollViewFrame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) * (1.0-_subViewsProportion) + kOverlap);
@@ -65,6 +64,8 @@
     frame.origin.x = [_mainViews count] * CGRectGetWidth(_mainScrollView.frame);
     view.frame = frame;
 
+    view.layer.cornerRadius = _cornerRadius;
+    
     [_mainScrollView addSubview:view];
 
     _mainScrollView.contentSize = CGSizeMake(CGRectGetMaxX(view.frame), CGRectGetHeight(_mainScrollView.frame));
@@ -83,7 +84,7 @@
     
     [_subScrollView addSubview:view];
     
-    _subScrollView.contentSize = CGSizeMake(CGRectGetMaxX(view.frame), CGRectGetHeight(_subScrollView.frame));
+    _subScrollView.contentSize = CGSizeMake(CGRectGetMaxX(view.frame) + 1, CGRectGetHeight(_subScrollView.frame));
     
     [_subViews addObject:view];
 }
@@ -126,7 +127,10 @@
 - (void)setRoundedCorner:(BOOL)roundedCorner {
     _roundedCorner = roundedCorner;
     
-    self.layer.cornerRadius = _roundedCorner ? _cornerRadius : 0;
+    [_mainViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        UIView *currentView = (UIView*)obj;
+        currentView.layer.cornerRadius = _cornerRadius;
+    }];
     
     [_subViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIView *currentView = (UIView*)obj;
