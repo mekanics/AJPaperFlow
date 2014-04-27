@@ -1,14 +1,14 @@
 //
 //  AJAppDelegate.m
-//  AJSeeEveryViews
+//  AJPaperFlow
 //
 //  Created by Alexandre Joly on 07/04/14.
 //  Copyright (c) 2014 Alexandre Joly. All rights reserved.
 //
 
 #import "AJAppDelegate.h"
-#import "AJSeeEveryViewsController.h"
-#import "AJSeeEveryViewsProtocol.h"
+#import "AJPaperFlowViewController.h"
+#import "AJPaperFlowProtocol.h"
 #import "AJDummyViewController.h"
 
 @implementation AJAppDelegate
@@ -33,7 +33,7 @@ AJDummyViewController*(^dummyMainViewController)(NSString*) = ^(NSString* title)
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     
-    AJSeeEveryViewsController *exampleCV = [[AJSeeEveryViewsController alloc] initWithViewControllers:@[
+    AJPaperFlowViewController *exampleCV = [[AJPaperFlowViewController alloc] initWithViewControllers:@[
                                                                                                         dummyMainViewController(@"View 1"),
                                                                                                         dummyMainViewController(@"View 2")]];
     self.window.rootViewController = exampleCV;

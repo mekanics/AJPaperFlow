@@ -1,24 +1,24 @@
 //
-//  AJSeeEveryViews.m
-//  AJSeeEveryViews
+//  AJPaperFlowView.m
+//  AJPaperFlow
 //
 //  Created by Alexandre Joly on 07/04/14.
 //  Copyright (c) 2014 Alexandre Joly. All rights reserved.
 //
 
-#import "AJSeeEveryViews.h"
+#import "AJPaperFlowView.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define kOverlap 20.0f
 
-@interface AJSeeEveryViews ()
+@interface AJPaperFlowView ()
 
 @property (nonatomic, strong) NSMutableArray *mainViews;
 @property (nonatomic, strong) NSMutableArray *subViews;
 
 @end
 
-@implementation AJSeeEveryViews
+@implementation AJPaperFlowView
 
 - (void)initialization {
     _roundedCorner = YES;

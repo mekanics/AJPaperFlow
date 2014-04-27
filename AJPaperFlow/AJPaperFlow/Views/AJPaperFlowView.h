@@ -1,6 +1,6 @@
 //
-//  AJSeeEveryViews.h
-//  AJSeeEveryViews
+//  AJPaperFlowView.h
+//  AJPaperFlow
 //
 //  Created by Alexandre Joly on 07/04/14.
 //  Copyright (c) 2014 Alexandre Joly. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AJSeeEveryViews : UIView
+@interface AJPaperFlowView : UIView
 
 @property (nonatomic, strong) UIScrollView *mainScrollView;
 @property (nonatomic, strong) UIScrollView *subScrollView;

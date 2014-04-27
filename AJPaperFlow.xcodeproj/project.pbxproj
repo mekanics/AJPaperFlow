@@ -20,9 +20,8 @@
 		B1F18A8318F3292900D91054 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6818F3292900D91054 /* Foundation.framework */; };
 		B1F18A8418F3292900D91054 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6C18F3292900D91054 /* UIKit.framework */; };
 		B1F18A8C18F3292900D91054 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1F18A8A18F3292900D91054 /* InfoPlist.strings */; };
-		B1F18A8E18F3292900D91054 /* AJSeeEveryViewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F18A8D18F3292900D91054 /* AJSeeEveryViewsTests.m */; };
-		B1F18A9B18F32C4600D91054 /* AJSeeEveryViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F18A9A18F32C4600D91054 /* AJSeeEveryViewsController.m */; };
-		B1F18A9E18F32FAA00D91054 /* AJSeeEveryViews.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F18A9D18F32FAA00D91054 /* AJSeeEveryViews.m */; };
+		B1F18A9B18F32C4600D91054 /* AJPaperFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F18A9A18F32C4600D91054 /* AJPaperFlowViewController.m */; };
+		B1F18A9E18F32FAA00D91054 /* AJPaperFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F18A9D18F32FAA00D91054 /* AJPaperFlowView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,30 +35,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B10CCF3218FEE38A00E9C01A /* AJSeeEveryViewsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSeeEveryViewsProtocol.h; sourceTree = "<group>"; };
+		B10CCF3218FEE38A00E9C01A /* AJPaperFlowProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPaperFlowProtocol.h; sourceTree = "<group>"; };
 		B10CCF3318FEE44600E9C01A /* AJDummyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJDummyViewController.h; sourceTree = "<group>"; };
 		B10CCF3418FEE44600E9C01A /* AJDummyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJDummyViewController.m; sourceTree = "<group>"; };
 		B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		B1F18A6518F3292900D91054 /* AJSeeEveryViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJSeeEveryViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1F18A6518F3292900D91054 /* AJPaperFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJPaperFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F18A6818F3292900D91054 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1F18A6A18F3292900D91054 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B1F18A6C18F3292900D91054 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		B1F18A7018F3292900D91054 /* AJSeeEveryViews-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AJSeeEveryViews-Info.plist"; sourceTree = "<group>"; };
+		B1F18A7018F3292900D91054 /* AJPaperFlow-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AJPaperFlow-Info.plist"; sourceTree = "<group>"; };
 		B1F18A7218F3292900D91054 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1F18A7418F3292900D91054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B1F18A7618F3292900D91054 /* AJSeeEveryViews-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AJSeeEveryViews-Prefix.pch"; sourceTree = "<group>"; };
+		B1F18A7618F3292900D91054 /* AJPaperFlow-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AJPaperFlow-Prefix.pch"; sourceTree = "<group>"; };
 		B1F18A7718F3292900D91054 /* AJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJAppDelegate.h; sourceTree = "<group>"; };
 		B1F18A7818F3292900D91054 /* AJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJAppDelegate.m; sourceTree = "<group>"; };
 		B1F18A7A18F3292900D91054 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B1F18A8018F3292900D91054 /* AJSeeEveryViewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AJSeeEveryViewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1F18A8018F3292900D91054 /* AJPaperFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AJPaperFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F18A8118F3292900D91054 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		B1F18A8918F3292900D91054 /* AJSeeEveryViewsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AJSeeEveryViewsTests-Info.plist"; sourceTree = "<group>"; };
+		B1F18A8918F3292900D91054 /* AJPaperFlowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AJPaperFlowTests-Info.plist"; sourceTree = "<group>"; };
 		B1F18A8B18F3292900D91054 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B1F18A8D18F3292900D91054 /* AJSeeEveryViewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJSeeEveryViewsTests.m; sourceTree = "<group>"; };
-		B1F18A9918F32C4600D91054 /* AJSeeEveryViewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSeeEveryViewsController.h; sourceTree = "<group>"; };
-		B1F18A9A18F32C4600D91054 /* AJSeeEveryViewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSeeEveryViewsController.m; sourceTree = "<group>"; };
-		B1F18A9C18F32FAA00D91054 /* AJSeeEveryViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSeeEveryViews.h; sourceTree = "<group>"; };
-		B1F18A9D18F32FAA00D91054 /* AJSeeEveryViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSeeEveryViews.m; sourceTree = "<group>"; };
+		B1F18A9918F32C4600D91054 /* AJPaperFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPaperFlowViewController.h; sourceTree = "<group>"; };
+		B1F18A9A18F32C4600D91054 /* AJPaperFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPaperFlowViewController.m; sourceTree = "<group>"; };
+		B1F18A9C18F32FAA00D91054 /* AJPaperFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPaperFlowView.h; sourceTree = "<group>"; };
+		B1F18A9D18F32FAA00D91054 /* AJPaperFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPaperFlowView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,17 +88,17 @@
 		B1ADAF8218F3426300B13AA7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				B10CCF3218FEE38A00E9C01A /* AJSeeEveryViewsProtocol.h */,
+				B10CCF3218FEE38A00E9C01A /* AJPaperFlowProtocol.h */,
 			);
 			name = Protocols;
-			path = AJSeeEveryViews/Protocols;
+			path = AJPaperFlow/Protocols;
 			sourceTree = "<group>";
 		};
 		B1F18A5C18F3292900D91054 = {
 			isa = PBXGroup;
 			children = (
-				B1F18A6E18F3292900D91054 /* AJSeeEveryViews */,
-				B1F18A8718F3292900D91054 /* AJSeeEveryViewsTests */,
+				B1F18A6E18F3292900D91054 /* AJPaperFlow */,
+				B1F18A8718F3292900D91054 /* AJPaperFlowTests */,
 				B1F18A6718F3292900D91054 /* Frameworks */,
 				B1F18A6618F3292900D91054 /* Products */,
 			);
@@ -109,8 +107,8 @@
 		B1F18A6618F3292900D91054 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B1F18A6518F3292900D91054 /* AJSeeEveryViews.app */,
-				B1F18A8018F3292900D91054 /* AJSeeEveryViewsTests.xctest */,
+				B1F18A6518F3292900D91054 /* AJPaperFlow.app */,
+				B1F18A8018F3292900D91054 /* AJPaperFlowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,7 +125,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B1F18A6E18F3292900D91054 /* AJSeeEveryViews */ = {
+		B1F18A6E18F3292900D91054 /* AJPaperFlow */ = {
 			isa = PBXGroup;
 			children = (
 				B1F18A9F18F32FB300D91054 /* Views */,
@@ -139,33 +137,32 @@
 				B1F18A7A18F3292900D91054 /* Images.xcassets */,
 				B1F18A6F18F3292900D91054 /* Supporting Files */,
 			);
-			path = AJSeeEveryViews;
+			path = AJPaperFlow;
 			sourceTree = "<group>";
 		};
 		B1F18A6F18F3292900D91054 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B1F18A7018F3292900D91054 /* AJSeeEveryViews-Info.plist */,
+				B1F18A7018F3292900D91054 /* AJPaperFlow-Info.plist */,
 				B1F18A7118F3292900D91054 /* InfoPlist.strings */,
 				B1F18A7418F3292900D91054 /* main.m */,
-				B1F18A7618F3292900D91054 /* AJSeeEveryViews-Prefix.pch */,
+				B1F18A7618F3292900D91054 /* AJPaperFlow-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B1F18A8718F3292900D91054 /* AJSeeEveryViewsTests */ = {
+		B1F18A8718F3292900D91054 /* AJPaperFlowTests */ = {
 			isa = PBXGroup;
 			children = (
-				B1F18A8D18F3292900D91054 /* AJSeeEveryViewsTests.m */,
 				B1F18A8818F3292900D91054 /* Supporting Files */,
 			);
-			path = AJSeeEveryViewsTests;
+			path = AJPaperFlowTests;
 			sourceTree = "<group>";
 		};
 		B1F18A8818F3292900D91054 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B1F18A8918F3292900D91054 /* AJSeeEveryViewsTests-Info.plist */,
+				B1F18A8918F3292900D91054 /* AJPaperFlowTests-Info.plist */,
 				B1F18A8A18F3292900D91054 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -183,29 +180,29 @@
 		B1F18A9818F32A2700D91054 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B1F18A9918F32C4600D91054 /* AJSeeEveryViewsController.h */,
-				B1F18A9A18F32C4600D91054 /* AJSeeEveryViewsController.m */,
+				B1F18A9918F32C4600D91054 /* AJPaperFlowViewController.h */,
+				B1F18A9A18F32C4600D91054 /* AJPaperFlowViewController.m */,
 			);
 			name = ViewControllers;
-			path = AJSeeEveryViews/ViewConrollers;
+			path = AJPaperFlow/ViewConrollers;
 			sourceTree = "<group>";
 		};
 		B1F18A9F18F32FB300D91054 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B1F18A9C18F32FAA00D91054 /* AJSeeEveryViews.h */,
-				B1F18A9D18F32FAA00D91054 /* AJSeeEveryViews.m */,
+				B1F18A9C18F32FAA00D91054 /* AJPaperFlowView.h */,
+				B1F18A9D18F32FAA00D91054 /* AJPaperFlowView.m */,
 			);
 			name = Views;
-			path = AJSeeEveryViews/Views;
+			path = AJPaperFlow/Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B1F18A6418F3292900D91054 /* AJSeeEveryViews */ = {
+		B1F18A6418F3292900D91054 /* AJPaperFlow */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B1F18A9118F3292900D91054 /* Build configuration list for PBXNativeTarget "AJSeeEveryViews" */;
+			buildConfigurationList = B1F18A9118F3292900D91054 /* Build configuration list for PBXNativeTarget "AJPaperFlow" */;
 			buildPhases = (
 				B1F18A6118F3292900D91054 /* Sources */,
 				B1F18A6218F3292900D91054 /* Frameworks */,
@@ -215,14 +212,14 @@
 			);
 			dependencies = (
 			);
-			name = AJSeeEveryViews;
+			name = AJPaperFlow;
 			productName = AJSeeEveryViews;
-			productReference = B1F18A6518F3292900D91054 /* AJSeeEveryViews.app */;
+			productReference = B1F18A6518F3292900D91054 /* AJPaperFlow.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B1F18A7F18F3292900D91054 /* AJSeeEveryViewsTests */ = {
+		B1F18A7F18F3292900D91054 /* AJPaperFlowTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B1F18A9418F3292900D91054 /* Build configuration list for PBXNativeTarget "AJSeeEveryViewsTests" */;
+			buildConfigurationList = B1F18A9418F3292900D91054 /* Build configuration list for PBXNativeTarget "AJPaperFlowTests" */;
 			buildPhases = (
 				B1F18A7C18F3292900D91054 /* Sources */,
 				B1F18A7D18F3292900D91054 /* Frameworks */,
@@ -233,9 +230,9 @@
 			dependencies = (
 				B1F18A8618F3292900D91054 /* PBXTargetDependency */,
 			);
-			name = AJSeeEveryViewsTests;
+			name = AJPaperFlowTests;
 			productName = AJSeeEveryViewsTests;
-			productReference = B1F18A8018F3292900D91054 /* AJSeeEveryViewsTests.xctest */;
+			productReference = B1F18A8018F3292900D91054 /* AJPaperFlowTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -253,7 +250,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B1F18A6018F3292900D91054 /* Build configuration list for PBXProject "AJSeeEveryViews" */;
+			buildConfigurationList = B1F18A6018F3292900D91054 /* Build configuration list for PBXProject "AJPaperFlow" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -265,8 +262,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B1F18A6418F3292900D91054 /* AJSeeEveryViews */,
-				B1F18A7F18F3292900D91054 /* AJSeeEveryViewsTests */,
+				B1F18A6418F3292900D91054 /* AJPaperFlow */,
+				B1F18A7F18F3292900D91054 /* AJPaperFlowTests */,
 			);
 		};
 /* End PBXProject section */
@@ -297,10 +294,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1F18A7518F3292900D91054 /* main.m in Sources */,
-				B1F18A9E18F32FAA00D91054 /* AJSeeEveryViews.m in Sources */,
+				B1F18A9E18F32FAA00D91054 /* AJPaperFlowView.m in Sources */,
 				B1F18A7918F3292900D91054 /* AJAppDelegate.m in Sources */,
 				B10CCF3518FEE44600E9C01A /* AJDummyViewController.m in Sources */,
-				B1F18A9B18F32C4600D91054 /* AJSeeEveryViewsController.m in Sources */,
+				B1F18A9B18F32C4600D91054 /* AJPaperFlowViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +305,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1F18A8E18F3292900D91054 /* AJSeeEveryViewsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +313,7 @@
 /* Begin PBXTargetDependency section */
 		B1F18A8618F3292900D91054 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B1F18A6418F3292900D91054 /* AJSeeEveryViews */;
+			target = B1F18A6418F3292900D91054 /* AJPaperFlow */;
 			targetProxy = B1F18A8518F3292900D91054 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -420,9 +416,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AJSeeEveryViews/AJSeeEveryViews-Prefix.pch";
-				INFOPLIST_FILE = "AJSeeEveryViews/AJSeeEveryViews-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "AJPaperFlow/AJPaperFlow-Prefix.pch";
+				INFOPLIST_FILE = "AJPaperFlow/AJPaperFlow-Info.plist";
+				PRODUCT_NAME = AJPaperFlow;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -433,9 +429,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AJSeeEveryViews/AJSeeEveryViews-Prefix.pch";
-				INFOPLIST_FILE = "AJSeeEveryViews/AJSeeEveryViews-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "AJPaperFlow/AJPaperFlow-Prefix.pch";
+				INFOPLIST_FILE = "AJPaperFlow/AJPaperFlow-Info.plist";
+				PRODUCT_NAME = AJPaperFlow;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -443,20 +439,20 @@
 		B1F18A9518F3292900D91054 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AJSeeEveryViews.app/AJSeeEveryViews";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AJPaperFlow.app/AJPaperFlow";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AJSeeEveryViews/AJSeeEveryViews-Prefix.pch";
+				GCC_PREFIX_HEADER = "AJPaperFlow/AJPaperFlow-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "AJSeeEveryViewsTests/AJSeeEveryViewsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "AJPaperFlowTests/AJPaperFlowTests-Info.plist";
+				PRODUCT_NAME = AJPaperFlowTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -465,16 +461,16 @@
 		B1F18A9618F3292900D91054 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AJSeeEveryViews.app/AJSeeEveryViews";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AJPaperFlow.app/AJPaperFlow";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AJSeeEveryViews/AJSeeEveryViews-Prefix.pch";
-				INFOPLIST_FILE = "AJSeeEveryViewsTests/AJSeeEveryViewsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "AJPaperFlow/AJPaperFlow-Prefix.pch";
+				INFOPLIST_FILE = "AJPaperFlowTests/AJPaperFlowTests-Info.plist";
+				PRODUCT_NAME = AJPaperFlowTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -483,7 +479,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B1F18A6018F3292900D91054 /* Build configuration list for PBXProject "AJSeeEveryViews" */ = {
+		B1F18A6018F3292900D91054 /* Build configuration list for PBXProject "AJPaperFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B1F18A8F18F3292900D91054 /* Debug */,
@@ -492,7 +488,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B1F18A9118F3292900D91054 /* Build configuration list for PBXNativeTarget "AJSeeEveryViews" */ = {
+		B1F18A9118F3292900D91054 /* Build configuration list for PBXNativeTarget "AJPaperFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B1F18A9218F3292900D91054 /* Debug */,
@@ -501,7 +497,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B1F18A9418F3292900D91054 /* Build configuration list for PBXNativeTarget "AJSeeEveryViewsTests" */ = {
+		B1F18A9418F3292900D91054 /* Build configuration list for PBXNativeTarget "AJPaperFlowTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B1F18A9518F3292900D91054 /* Debug */,

@@ -1,25 +1,25 @@
 //
-//  AJSeeEveryViewsController.m
-//  AJSeeEveryViews
+//  AJPaperFlowViewController.m
+//  AJPaperFlow
 //
 //  Created by Alexandre Joly on 07/04/14.
 //  Copyright (c) 2014 Alexandre Joly. All rights reserved.
 //
 
-#import "AJSeeEveryViewsController.h"
-#import "AJSeeEveryViews.h"
-#import "AJSeeEveryViewsProtocol.h"
+#import "AJPaperFlowViewController.h"
+#import "AJPaperFlowView.h"
+#import "AJPaperFlowProtocol.h"
 
-@interface AJSeeEveryViewsController ()
+@interface AJPaperFlowViewController ()
 
 @property (nonatomic, strong) NSMutableArray *viewControllers;
-@property (nonatomic, strong) AJSeeEveryViews *v;
+@property (nonatomic, strong) AJPaperFlowView *v;
 @property (nonatomic, assign) NSInteger currentPage;
-@property (nonatomic, strong) UIViewController<AJSeeEveryViewsProtocol> *currentMainViewController;
+@property (nonatomic, strong) UIViewController<AJPaperFlowProtocol> *currentMainViewController;
 
 @end
 
-@implementation AJSeeEveryViewsController
+@implementation AJPaperFlowViewController
 
 - (void)initialization {
 
@@ -50,7 +50,7 @@
 - (void)loadView {
     
     CGRect frame = [[UIScreen mainScreen] bounds];
-    _v = [[AJSeeEveryViews alloc] initWithFrame:frame];
+    _v = [[AJPaperFlowView alloc] initWithFrame:frame];
     
     _v.mainScrollView.delegate = self;
 
@@ -69,7 +69,7 @@
 }
 
 - (void)addViewController:(UIViewController *)viewController {
-    NSAssert([viewController conformsToProtocol:@protocol(AJSeeEveryViewsProtocol)], @"The viewcController doesn't conform to the protocol 'AJSeeEveryViewsProtocol'");
+    NSAssert([viewController conformsToProtocol:@protocol(AJPaperFlowProtocol)], @"The viewcController doesn't conform to the protocol 'AJPaperFlowProtocol'");
     
     [_v pushMainView:viewController.view];
 }
@@ -80,7 +80,7 @@
 
 - (void)setMainViews {
     [_viewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSAssert([obj conformsToProtocol:@protocol(AJSeeEveryViewsProtocol)], @"The viewcController doesn't conform to the protocol 'AJSeeEveryViewsProtocol'");
+        NSAssert([obj conformsToProtocol:@protocol(AJPaperFlowProtocol)], @"The viewcController doesn't conform to the protocol 'AJPaperFlowProtocol'");
         
         [_v pushMainView:((UIViewController*)obj).view];
         
@@ -89,7 +89,7 @@
     }];
 }
 
-- (void)setSubViewsOfViewController:(UIViewController<AJSeeEveryViewsProtocol>*)mainViewController {
+- (void)setSubViewsOfViewController:(UIViewController<AJPaperFlowProtocol>*)mainViewController {
     [_v removeSubViews];
     
     [mainViewController.subViewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -99,12 +99,12 @@
 
 #pragma mark Setter
 
-- (void)setCurrentMainViewController:(UIViewController<AJSeeEveryViewsProtocol> *)currentMainViewController {
+- (void)setCurrentMainViewController:(UIViewController<AJPaperFlowProtocol> *)currentMainViewController {
     if (_currentMainViewController == currentMainViewController) return;
     
     _currentMainViewController = currentMainViewController;
     
-    [self setSubViewsOfViewController:(UIViewController<AJSeeEveryViewsProtocol> *)_currentMainViewController];
+    [self setSubViewsOfViewController:(UIViewController<AJPaperFlowProtocol> *)_currentMainViewController];
 }
 
 #pragma mark - UIScrollViewDelegate

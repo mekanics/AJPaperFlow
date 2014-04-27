@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B1F18A6418F3292900D91054"
-               BuildableName = "AJSeeEveryViews.app"
-               BlueprintName = "AJSeeEveryViews"
-               ReferencedContainer = "container:AJSeeEveryViews.xcodeproj">
+               BuildableName = "AJPaperFlow.app"
+               BlueprintName = "AJPaperFlow"
+               ReferencedContainer = "container:AJPaperFlow.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B1F18A7F18F3292900D91054"
-               BuildableName = "AJSeeEveryViewsTests.xctest"
-               BlueprintName = "AJSeeEveryViewsTests"
-               ReferencedContainer = "container:AJSeeEveryViews.xcodeproj">
+               BuildableName = "AJPaperFlowTests.xctest"
+               BlueprintName = "AJPaperFlowTests"
+               ReferencedContainer = "container:AJPaperFlow.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B1F18A6418F3292900D91054"
-            BuildableName = "AJSeeEveryViews.app"
-            BlueprintName = "AJSeeEveryViews"
-            ReferencedContainer = "container:AJSeeEveryViews.xcodeproj">
+            BuildableName = "AJPaperFlow.app"
+            BlueprintName = "AJPaperFlow"
+            ReferencedContainer = "container:AJPaperFlow.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B1F18A6418F3292900D91054"
-            BuildableName = "AJSeeEveryViews.app"
-            BlueprintName = "AJSeeEveryViews"
-            ReferencedContainer = "container:AJSeeEveryViews.xcodeproj">
+            BuildableName = "AJPaperFlow.app"
+            BlueprintName = "AJPaperFlow"
+            ReferencedContainer = "container:AJPaperFlow.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B1F18A6418F3292900D91054"
-            BuildableName = "AJSeeEveryViews.app"
-            BlueprintName = "AJSeeEveryViews"
-            ReferencedContainer = "container:AJSeeEveryViews.xcodeproj">
+            BuildableName = "AJPaperFlow.app"
+            BlueprintName = "AJPaperFlow"
+            ReferencedContainer = "container:AJPaperFlow.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
