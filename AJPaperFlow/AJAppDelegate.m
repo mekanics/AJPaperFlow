@@ -1,20 +1,43 @@
 //
 //  AJAppDelegate.m
-//  AJSeeEveryViews
+//  AJPaperFlow
 //
 //  Created by Alexandre Joly on 07/04/14.
 //  Copyright (c) 2014 Alexandre Joly. All rights reserved.
 //
 
 #import "AJAppDelegate.h"
+#import "AJPaperFlowViewController.h"
+#import "AJPaperFlowProtocol.h"
+#import "AJDummyViewController.h"
 
 @implementation AJAppDelegate
+
+AJDummyViewController*(^dummyMainViewController)(NSString*) = ^(NSString* title) {
+    AJDummyViewController *vc = [AJDummyViewController new];
+    vc.view.backgroundColor = [UIColor colorWithHue:(arc4random() % 255 / 255.0) saturation:0.6 brightness:0.6 alpha:1.0];
+    
+    vc.title = title;
+
+    UILabel *lbl = [[UILabel alloc] init];
+    lbl.text = title;
+    [lbl sizeToFit];
+    lbl.frame = CGRectOffset(lbl.frame, 20, 20);
+    [vc.view addSubview:lbl];
+    
+    return vc;
+};
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    AJPaperFlowViewController *exampleCV = [[AJPaperFlowViewController alloc] initWithViewControllers:@[
+                                                                                                        dummyMainViewController(@"View 1"),
+                                                                                                        dummyMainViewController(@"View 2")]];
+    self.window.rootViewController = exampleCV;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
