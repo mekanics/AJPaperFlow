@@ -1,10 +1,10 @@
-# AJSeeEveryViews
+# AJPaperFlow
 
-AJSeeEveryViews is a [Facebook Paper](http://facebook.com/paper) inspired navigation flow. 
+`AJPaperFlow` is a [Facebook Paper](http://facebook.com/paper) inspired navigation flow. 
 
 ## Installation
 
-AJSeeEveryViews will be available through [CocoaPods](http://cocoapods.org)
+`AJPaperFlow` will be available through [CocoaPods](http://cocoapods.org)
 
 ## Usage 
 
@@ -12,7 +12,6 @@ AJSeeEveryViews will be available through [CocoaPods](http://cocoapods.org)
 
 ## TODO
 
- - Rename the project!
  - Cocoapod
  - animations
  - and much much more ... 
@@ -30,4 +29,4 @@ Alexandre Joly
 
 ## License
 
-AJSeeEveryViews is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
+`AJPaperFlow` is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
