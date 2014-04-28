@@ -10,9 +10,9 @@
 
 @interface AJPaperFlowViewController : UIViewController <UIScrollViewDelegate>
 
-- (id)initWithViewControllers:(NSArray*)viewControllers;
+- (id)initWithViewControllers:(NSArray *)viewControllers;
 
-- (void)addViewController:(UIViewController*)viewController;
-- (void)insertViewController:(UIViewController*)viewController atIndex:(NSInteger)index;
+- (void)addViewController:(UIViewController *)viewController;
+- (void)insertViewController:(UIViewController *)viewController atIndex:(NSInteger)index;
 
 @end
