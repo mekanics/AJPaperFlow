@@ -3,6 +3,10 @@ xcode_project: AJPaperFlow.xcodeproj
 xcode_scheme: AJPaperFlow
 xcode_sdk: iphonesimulator7.0
 
+before_script:
+  - export LANG=en_US.UTF-8
+
 before_install:
+  - gem update cocoapods
   - brew update
   - brew upgrade xctool
