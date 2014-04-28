@@ -38,6 +38,8 @@
 }
 
 - (id)initWithViewControllers:(NSArray*)viewControllers {
+    NSParameterAssert(viewControllers);
+    
     self = [super init];
     if (self) {
         [self initialization];

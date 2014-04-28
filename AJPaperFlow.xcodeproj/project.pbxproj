@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B10CCF3518FEE44600E9C01A /* AJDummyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B10CCF3418FEE44600E9C01A /* AJDummyViewController.m */; };
 		B1ADAF8118F3349C00B13AA7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */; };
+		B1C9269F190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */; };
 		B1F18A6918F3292900D91054 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6818F3292900D91054 /* Foundation.framework */; };
 		B1F18A6B18F3292900D91054 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6A18F3292900D91054 /* CoreGraphics.framework */; };
 		B1F18A6D18F3292900D91054 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6C18F3292900D91054 /* UIKit.framework */; };
@@ -22,6 +23,7 @@
 		B1F18A8C18F3292900D91054 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1F18A8A18F3292900D91054 /* InfoPlist.strings */; };
 		B1F18A9B18F32C4600D91054 /* AJPaperFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F18A9A18F32C4600D91054 /* AJPaperFlowViewController.m */; };
 		B1F18A9E18F32FAA00D91054 /* AJPaperFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F18A9D18F32FAA00D91054 /* AJPaperFlowView.m */; };
+		CD2F7BCCB86342CAAB3BAFC1 /* libPods-AJPaperFlowTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 314A2406934049718378B576 /* libPods-AJPaperFlowTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		314A2406934049718378B576 /* libPods-AJPaperFlowTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AJPaperFlowTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64AD76F2CE6643E6B7870217 /* Pods-AJPaperFlowTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AJPaperFlowTests.xcconfig"; path = "Pods/Pods-AJPaperFlowTests.xcconfig"; sourceTree = "<group>"; };
 		B10CCF3218FEE38A00E9C01A /* AJPaperFlowProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPaperFlowProtocol.h; sourceTree = "<group>"; };
 		B10CCF3318FEE44600E9C01A /* AJDummyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJDummyViewController.h; sourceTree = "<group>"; };
 		B10CCF3418FEE44600E9C01A /* AJDummyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJDummyViewController.m; sourceTree = "<group>"; };
 		B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPaperFlowViewControllerSpec.m; sourceTree = "<group>"; };
 		B1F18A6518F3292900D91054 /* AJPaperFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJPaperFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F18A6818F3292900D91054 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1F18A6A18F3292900D91054 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -79,6 +84,7 @@
 				B1F18A8218F3292900D91054 /* XCTest.framework in Frameworks */,
 				B1F18A8418F3292900D91054 /* UIKit.framework in Frameworks */,
 				B1F18A8318F3292900D91054 /* Foundation.framework in Frameworks */,
+				CD2F7BCCB86342CAAB3BAFC1 /* libPods-AJPaperFlowTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +107,7 @@
 				B1F18A8718F3292900D91054 /* AJPaperFlowTests */,
 				B1F18A6718F3292900D91054 /* Frameworks */,
 				B1F18A6618F3292900D91054 /* Products */,
+				64AD76F2CE6643E6B7870217 /* Pods-AJPaperFlowTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +128,7 @@
 				B1F18A6A18F3292900D91054 /* CoreGraphics.framework */,
 				B1F18A6C18F3292900D91054 /* UIKit.framework */,
 				B1F18A8118F3292900D91054 /* XCTest.framework */,
+				314A2406934049718378B576 /* libPods-AJPaperFlowTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -155,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				B1F18A8818F3292900D91054 /* Supporting Files */,
+				B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */,
 			);
 			path = AJPaperFlowTests;
 			sourceTree = "<group>";
@@ -221,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1F18A9418F3292900D91054 /* Build configuration list for PBXNativeTarget "AJPaperFlowTests" */;
 			buildPhases = (
+				F5167D72F5164B25ADD9C00E /* Check Pods Manifest.lock */,
 				B1F18A7C18F3292900D91054 /* Sources */,
 				B1F18A7D18F3292900D91054 /* Frameworks */,
 				B1F18A7E18F3292900D91054 /* Resources */,
+				32B4A171ED81456A990CD19A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -288,6 +299,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		32B4A171ED81456A990CD19A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-AJPaperFlowTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5167D72F5164B25ADD9C00E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B1F18A6118F3292900D91054 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -305,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C9269F190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +483,7 @@
 		};
 		B1F18A9518F3292900D91054 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64AD76F2CE6643E6B7870217 /* Pods-AJPaperFlowTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AJPaperFlow.app/AJPaperFlow";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -460,6 +506,7 @@
 		};
 		B1F18A9618F3292900D91054 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64AD76F2CE6643E6B7870217 /* Pods-AJPaperFlowTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AJPaperFlow.app/AJPaperFlow";
 				FRAMEWORK_SEARCH_PATHS = (
