@@ -1,5 +1,5 @@
 language: objective-c
-xcode_project: AJPaperFlow.xcodeproj
+xcode_project: AJPaperFlow.xcworkspace
 xcode_scheme: AJPaperFlow
 xcode_sdk: iphonesimulator7.0
 
