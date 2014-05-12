@@ -10,6 +10,10 @@
 		B10CCF3518FEE44600E9C01A /* AJDummyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B10CCF3418FEE44600E9C01A /* AJDummyViewController.m */; };
 		B1ADAF8118F3349C00B13AA7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */; };
 		B1C9269F190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */; };
+		B1E9A206191FB1D500E2C01A /* AJPaperFlowMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9A205191FB1D500E2C01A /* AJPaperFlowMainViewController.m */; };
+		B1E9A209191FB6C500E2C01A /* AJPaperFlowMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9A208191FB6C500E2C01A /* AJPaperFlowMainView.m */; };
+		B1E9A20C192001F700E2C01A /* AJPaperFlowSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9A20B192001F700E2C01A /* AJPaperFlowSubView.m */; };
+		B1E9A20F192003CB00E2C01A /* AJPaperFlowSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9A20E192003CB00E2C01A /* AJPaperFlowSubViewController.m */; };
 		B1F18A6918F3292900D91054 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6818F3292900D91054 /* Foundation.framework */; };
 		B1F18A6B18F3292900D91054 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6A18F3292900D91054 /* CoreGraphics.framework */; };
 		B1F18A6D18F3292900D91054 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F18A6C18F3292900D91054 /* UIKit.framework */; };
@@ -44,6 +48,14 @@
 		B10CCF3418FEE44600E9C01A /* AJDummyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJDummyViewController.m; sourceTree = "<group>"; };
 		B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPaperFlowViewControllerSpec.m; sourceTree = "<group>"; };
+		B1E9A204191FB1D500E2C01A /* AJPaperFlowMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPaperFlowMainViewController.h; sourceTree = "<group>"; };
+		B1E9A205191FB1D500E2C01A /* AJPaperFlowMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPaperFlowMainViewController.m; sourceTree = "<group>"; };
+		B1E9A207191FB6C500E2C01A /* AJPaperFlowMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPaperFlowMainView.h; sourceTree = "<group>"; };
+		B1E9A208191FB6C500E2C01A /* AJPaperFlowMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPaperFlowMainView.m; sourceTree = "<group>"; };
+		B1E9A20A192001F700E2C01A /* AJPaperFlowSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPaperFlowSubView.h; sourceTree = "<group>"; };
+		B1E9A20B192001F700E2C01A /* AJPaperFlowSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPaperFlowSubView.m; sourceTree = "<group>"; };
+		B1E9A20D192003CB00E2C01A /* AJPaperFlowSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPaperFlowSubViewController.h; sourceTree = "<group>"; };
+		B1E9A20E192003CB00E2C01A /* AJPaperFlowSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPaperFlowSubViewController.m; sourceTree = "<group>"; };
 		B1F18A6518F3292900D91054 /* AJPaperFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJPaperFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F18A6818F3292900D91054 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1F18A6A18F3292900D91054 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -191,6 +203,10 @@
 			children = (
 				B1F18A9918F32C4600D91054 /* AJPaperFlowViewController.h */,
 				B1F18A9A18F32C4600D91054 /* AJPaperFlowViewController.m */,
+				B1E9A204191FB1D500E2C01A /* AJPaperFlowMainViewController.h */,
+				B1E9A205191FB1D500E2C01A /* AJPaperFlowMainViewController.m */,
+				B1E9A20D192003CB00E2C01A /* AJPaperFlowSubViewController.h */,
+				B1E9A20E192003CB00E2C01A /* AJPaperFlowSubViewController.m */,
 			);
 			name = ViewControllers;
 			path = AJPaperFlow/ViewConrollers;
@@ -201,6 +217,10 @@
 			children = (
 				B1F18A9C18F32FAA00D91054 /* AJPaperFlowView.h */,
 				B1F18A9D18F32FAA00D91054 /* AJPaperFlowView.m */,
+				B1E9A207191FB6C500E2C01A /* AJPaperFlowMainView.h */,
+				B1E9A208191FB6C500E2C01A /* AJPaperFlowMainView.m */,
+				B1E9A20A192001F700E2C01A /* AJPaperFlowSubView.h */,
+				B1E9A20B192001F700E2C01A /* AJPaperFlowSubView.m */,
 			);
 			name = Views;
 			path = AJPaperFlow/Views;
@@ -338,10 +358,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1F18A7518F3292900D91054 /* main.m in Sources */,
+				B1E9A206191FB1D500E2C01A /* AJPaperFlowMainViewController.m in Sources */,
+				B1E9A209191FB6C500E2C01A /* AJPaperFlowMainView.m in Sources */,
 				B1F18A9E18F32FAA00D91054 /* AJPaperFlowView.m in Sources */,
 				B1F18A7918F3292900D91054 /* AJAppDelegate.m in Sources */,
 				B10CCF3518FEE44600E9C01A /* AJDummyViewController.m in Sources */,
+				B1E9A20F192003CB00E2C01A /* AJPaperFlowSubViewController.m in Sources */,
 				B1F18A9B18F32C4600D91054 /* AJPaperFlowViewController.m in Sources */,
+				B1E9A20C192001F700E2C01A /* AJPaperFlowSubView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
