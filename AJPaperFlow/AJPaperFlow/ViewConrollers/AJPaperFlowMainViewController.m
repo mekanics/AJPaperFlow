@@ -56,27 +56,27 @@
     }
     
     _currentViewController = currentViewController;
+    
+    if ([_delegate respondsToSelector:@selector(ajPaperFlowViewControllerDidChangeCurrentViewController:)]) {
+        [_delegate ajPaperFlowViewControllerDidChangeCurrentViewController:_currentViewController];
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat pageWidth = scrollView.frame.size.width;
-
-    _currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    NSLog(@"current page: %ld", (long)_currentPage);
-
-    if ([_viewControllers count] < _currentPage) {
-        return;
-    }
-
-    self.currentViewController = [_viewControllers objectAtIndex:_currentPage];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if ([_delegate respondsToSelector:@selector(ajPaperFlowViewControllerDidChangeCurrentViewController:)]) {
-        [_delegate ajPaperFlowViewControllerDidChangeCurrentViewController:_currentViewController];
+    CGFloat pageWidth = scrollView.frame.size.width;
+    
+    _currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    NSLog(@"current page: %ld", (long)_currentPage);
+    
+    if ([_viewControllers count] < _currentPage) {
+        return;
     }
+    self.currentViewController = [_viewControllers objectAtIndex:_currentPage];
 }
 
 @end
