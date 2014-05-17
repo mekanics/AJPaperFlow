@@ -22,23 +22,23 @@
     if (self) {
         _originFrame = frame;
         _views = [[NSMutableArray alloc] init];
-        
-//        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
-//        [self addSubview:_scrollView];
-//        _scrollView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.7];
     }
     return self;
 }
 
 - (void)layoutSubviews {
+    [super layoutSubviews];
+
     _originFrame = self.superview.bounds;
+    CGRect scrollViewFrame = _originFrame;
+    scrollViewFrame.origin.y = (int)(CGRectGetHeight(_originFrame) - (CGRectGetHeight(_originFrame) * self.subViewsProportion));
+    scrollViewFrame.size.height = (int)(CGRectGetHeight(scrollViewFrame) * self.subViewsProportion);
+    
+    if (!CGRectEqualToRect(scrollViewFrame, self.frame)) {
+        self.frame = scrollViewFrame;
+    }
     
     self.layer.masksToBounds = YES;
-    
-    CGRect scrollViewFrame = _originFrame;
-    scrollViewFrame.origin.y = CGRectGetHeight(_originFrame) - (CGRectGetHeight(_originFrame) * self.subViewsProportion);
-    scrollViewFrame.size.height *= self.subViewsProportion;
-    self.frame = scrollViewFrame;
 }
 
 - (void)pushView:(UIView *)view {

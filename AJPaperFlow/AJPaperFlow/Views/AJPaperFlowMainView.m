@@ -27,17 +27,21 @@
 }
 
 - (void)layoutSubviews {
+    [super layoutSubviews];
+    
     _originFrame = self.superview.bounds;
-    
-    self.layer.masksToBounds = YES;
-    
     CGRect scrollViewFrame = _originFrame;
     scrollViewFrame.size.height = CGRectGetHeight(_originFrame) * (1.0-self.subViewsProportion) + kOverlap;
-    self.frame = scrollViewFrame;
+    
+    if (!CGRectEqualToRect(scrollViewFrame, self.frame)) {
+        self.frame = scrollViewFrame;
+    }
     
     self.pagingEnabled = YES;
     self.showsHorizontalScrollIndicator = NO;
+    self.layer.masksToBounds = YES;
 }
+
 
 - (void)pushView:(UIView *)view {
     CGRect frame = self.bounds;
