@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    kAJPaperFlowSubViewStateDown = 0,
+    kAJPaperFlowSubViewStateFullScreen,
+    kAJPaperFlowSubViewStateHidden,
+} AJPaperFlowSubViewState;
+
 @protocol AJPaperFlowSubDelegate <NSObject>
 
 @end

@@ -33,13 +33,30 @@
     [super layoutSubviews];
 
     _originFrame = self.superview.bounds;
-    CGRect scrollViewFrame = _originFrame;
-    scrollViewFrame.origin.y = (int)(CGRectGetHeight(_originFrame) - (CGRectGetHeight(_originFrame) * self.subViewsProportion));
-    scrollViewFrame.size.height = (int)(CGRectGetHeight(scrollViewFrame) * self.subViewsProportion);
 
-    self.frame = scrollViewFrame;
+    [_views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        UIView *curView = (UIView*)obj;
 
-    self.layer.masksToBounds = YES;
+        [self zoomView:curView];
+
+        if (idx) {
+            CGRect frame = curView.frame;
+            frame.origin.x = 1 + CGRectGetMaxX(((UIView*)[_views objectAtIndex:idx-1]).frame);
+            curView.frame = frame;
+        }
+
+    }];
+
+    _scrollView.contentSize = CGSizeMake(CGRectGetMaxX(((UIView*)[_views lastObject]).frame) + 1, CGRectGetHeight(self.frame));
+}
+
+- (CGFloat)subViewsZoom {
+    CGFloat proportion = CGRectGetHeight(self.frame) / CGRectGetHeight(_originFrame);
+
+    proportion = MAX(proportion, self.subViewsProportion);
+    proportion = MIN(proportion, 1.0);
+
+    return proportion;
 }
 
 - (void)pushView:(UIView *)view {
@@ -47,23 +64,21 @@
     frame.origin.x = CGRectGetMaxX(((UIView*)[_views lastObject]).frame) + 1;
     frame.size.width = CGRectGetWidth(_originFrame);
     view.frame = frame;
-    [self minimizeView:view];
+    [self zoomView:view];
     
     view.layer.cornerRadius = self.cornerRadius;
     
     [_scrollView addSubview:view];
-    
-    _scrollView.contentSize = CGSizeMake(CGRectGetMaxX(view.frame) + 1, CGRectGetHeight(self.frame));
-    
+        
     [_views addObject:view];
 }
 
 #pragma mark -
 
-- (void)minimizeView:(UIView*)view {
+- (void)zoomView:(UIView*)view {
     CGRect frame = view.frame;
     
-    CGAffineTransform transform = CGAffineTransformMakeScale(self.subViewsProportion, self.subViewsProportion);
+    CGAffineTransform transform = CGAffineTransformMakeScale([self subViewsZoom], [self subViewsZoom]);
     view.transform = transform;
     
     frame.size.width = CGRectGetWidth(view.frame);
