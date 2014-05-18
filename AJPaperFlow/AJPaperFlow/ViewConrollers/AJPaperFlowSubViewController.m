@@ -20,11 +20,10 @@
 - (void)loadView {
     _v = [[AJPaperFlowSubView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _v.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _v.delegate = self;
+    _v.scrollView.delegate = self;
 
     self.view = _v;
 
-    _v.backgroundColor = [UIColor grayColor];
     _v.layer.borderColor = [UIColor redColor].CGColor;
     _v.layer.borderWidth = 1;
 }
@@ -51,7 +50,7 @@
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
-    NSLog(@"Swiped horizontally...");
+    NSLog(@"Swiped vertically...");
 }
 
 @end

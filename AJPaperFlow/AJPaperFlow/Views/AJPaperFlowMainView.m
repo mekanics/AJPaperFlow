@@ -11,7 +11,6 @@
 @interface AJPaperFlowMainView ()
 
 @property (nonatomic, assign) CGRect originFrame;
-@property (nonatomic, strong) NSMutableArray *views;
 
 @end
 
@@ -22,24 +21,27 @@
     if (self) {
         _originFrame = frame;
         _views = [[NSMutableArray alloc] init];
+
+        _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        [self addSubview:_scrollView];
     }
     return self;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     _originFrame = self.superview.bounds;
     CGRect scrollViewFrame = _originFrame;
-    scrollViewFrame.size.height = CGRectGetHeight(_originFrame) * (1.0-self.subViewsProportion) + kOverlap;
-    
-    if (!CGRectEqualToRect(scrollViewFrame, self.frame)) {
-        self.frame = scrollViewFrame;
-    }
-    
-    self.pagingEnabled = YES;
-    self.showsHorizontalScrollIndicator = NO;
+    scrollViewFrame.size.height = (int)(CGRectGetHeight(_originFrame) * (1.0-self.subViewsProportion) + kOverlap);
+
+    self.frame = scrollViewFrame;
+
     self.layer.masksToBounds = YES;
+
+    _scrollView.pagingEnabled = YES;
+    _scrollView.showsHorizontalScrollIndicator = NO;
 }
 
 
@@ -51,21 +53,13 @@
     view.layer.cornerRadius = self.cornerRadius;
     view.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
-    [self addSubview:view];
+    [_scrollView addSubview:view];
     
-    self.contentSize = CGSizeMake(CGRectGetMaxX(view.frame), CGRectGetHeight(self.frame));
+    _scrollView.contentSize = CGSizeMake(CGRectGetMaxX(view.frame), CGRectGetHeight(self.frame));
     
     [_views addObject:view];
 }
 
-- (void)removeViews {
-    [_views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        UIView *view = (UIView*)obj;
-        [view removeFromSuperview];
-    }];
-    
-    [_views removeAllObjects];
-}
 
 #pragma mark - Setter
 

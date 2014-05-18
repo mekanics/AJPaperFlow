@@ -24,12 +24,19 @@
 - (void)loadView {
     _v = [[AJPaperFlowMainView alloc] initWithFrame:CGRectZero];
     _v.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _v.delegate = self;
+    _v.scrollView.delegate = self;
     
     self.view = _v;
     
     _v.layer.borderColor = [UIColor greenColor].CGColor;
     _v.layer.borderWidth = 1;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [self.view addGestureRecognizer:panGestureRecognizer];
 }
 
 #pragma mark Setter
@@ -63,6 +70,10 @@
     if ([_delegate respondsToSelector:@selector(ajPaperFlowViewControllerDidChangeCurrentViewController:)]) {
         [_delegate ajPaperFlowViewControllerDidChangeCurrentViewController:_currentViewController];
     }
+}
+
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+    NSLog(@"Swiped vertically...");
 }
 
 #pragma mark - UIScrollViewDelegate

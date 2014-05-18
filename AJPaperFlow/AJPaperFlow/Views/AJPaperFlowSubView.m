@@ -11,7 +11,6 @@
 @interface AJPaperFlowSubView ()
 
 @property (nonatomic, assign) CGRect originFrame;
-@property (nonatomic, strong) NSMutableArray *views;
 
 @end
 
@@ -22,6 +21,10 @@
     if (self) {
         _originFrame = frame;
         _views = [[NSMutableArray alloc] init];
+
+        _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        [self addSubview:_scrollView];
     }
     return self;
 }
@@ -33,11 +36,9 @@
     CGRect scrollViewFrame = _originFrame;
     scrollViewFrame.origin.y = (int)(CGRectGetHeight(_originFrame) - (CGRectGetHeight(_originFrame) * self.subViewsProportion));
     scrollViewFrame.size.height = (int)(CGRectGetHeight(scrollViewFrame) * self.subViewsProportion);
-    
-    if (!CGRectEqualToRect(scrollViewFrame, self.frame)) {
-        self.frame = scrollViewFrame;
-    }
-    
+
+    self.frame = scrollViewFrame;
+
     self.layer.masksToBounds = YES;
 }
 
@@ -50,20 +51,11 @@
     
     view.layer.cornerRadius = self.cornerRadius;
     
-    [self addSubview:view];
+    [_scrollView addSubview:view];
     
-    self.contentSize = CGSizeMake(CGRectGetMaxX(view.frame) + 1, CGRectGetHeight(self.frame));
+    _scrollView.contentSize = CGSizeMake(CGRectGetMaxX(view.frame) + 1, CGRectGetHeight(self.frame));
     
     [_views addObject:view];
-}
-
-- (void)removeViews {
-    [_views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        UIView *view = (UIView*)obj;
-        [view removeFromSuperview];
-    }];
-    
-    [_views removeAllObjects];
 }
 
 #pragma mark -

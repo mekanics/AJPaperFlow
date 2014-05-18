@@ -11,8 +11,7 @@
 
 @interface AJPaperFlowView ()
 
-@property (nonatomic, strong) NSMutableArray *mainViews;
-@property (nonatomic, strong) NSMutableArray *subViews;
+@property (nonatomic, strong) NSMutableArray *views;
 
 @end
 
@@ -48,6 +47,15 @@
         [self initialization];
     }
     return self;
+}
+
+- (void)removeViews {
+    [_views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        UIView *view = (UIView*)obj;
+        [view removeFromSuperview];
+    }];
+
+    [_views removeAllObjects];
 }
 
 //

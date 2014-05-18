@@ -10,9 +10,13 @@
 
 #define kOverlap 20.0f
 
-@interface AJPaperFlowView : UIScrollView
+@interface AJPaperFlowView : UIView {
+    NSMutableArray *_views;
+}
 
 @property (nonatomic, assign) CGFloat cornerRadius UI_APPEARANCE_SELECTOR;
 @property (nonatomic, assign) CGFloat subViewsProportion UI_APPEARANCE_SELECTOR;
+
+- (void)removeViews;
 
 @end
