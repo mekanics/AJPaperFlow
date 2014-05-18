@@ -8,24 +8,25 @@
 
 #import "AJPaperFlowSubViewController.h"
 #import "AJPaperFlowSubView.h"
+#import <POP/POP.h>
 
 @interface AJPaperFlowSubViewController ()
 
 @property (nonatomic, strong) AJPaperFlowSubView *v;
+@property (nonatomic, assign) AJPaperFlowSubViewState state;
 
 @end
 
 @implementation AJPaperFlowSubViewController
 
 - (void)loadView {
+    _state = kAJPaperFlowSubViewStateDown;
+
     _v = [[AJPaperFlowSubView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _v.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _v.scrollView.delegate = self;
 
     self.view = _v;
-
-    _v.layer.borderColor = [UIColor redColor].CGColor;
-    _v.layer.borderWidth = 1;
 }
 
 - (void)viewDidLoad {
@@ -37,7 +38,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    _v.frame = [self frameForState:kAJPaperFlowSubViewStateDown];
+    _v.frame = [self frameForState:_state];
     _v.layer.masksToBounds = YES;
 }
 
@@ -94,13 +95,35 @@
         CGFloat proportion = CGRectGetHeight(self.view.frame) / CGRectGetHeight(self.view.superview.frame);
         CGFloat midProportion = (1.0 + _v.subViewsProportion)/2.0;
 
+        CGRect frame = self.view.frame;
         if (proportion > midProportion) {
-            self.view.frame = [self frameForState:kAJPaperFlowSubViewStateFullScreen];
+            frame = [self frameForState:kAJPaperFlowSubViewStateFullScreen];
         } else {
-            self.view.frame = [self frameForState:kAJPaperFlowSubViewStateDown];
+            frame = [self frameForState:kAJPaperFlowSubViewStateDown];
         }
+        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+        anim.toValue = [NSValue valueWithCGRect:frame];
+        [self.view pop_addAnimation:anim forKey:@"frame"];
     }
 
+}
+
+#pragma mark - Setter 
+
+- (void)setState:(AJPaperFlowSubViewState)state {
+
+    AJPaperFlowSubViewState oldState = _state;
+    AJPaperFlowSubViewState newState = state;
+
+    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:willSetState:fromState:)]) {
+        [_delegate ajPaperFlowSubViewController:self willSetState:newState fromState:oldState];
+    }
+
+    _state = state;
+
+    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:didSetState:fromState:)]) {
+        [_delegate ajPaperFlowSubViewController:self didSetState:newState fromState:oldState];
+    }
 }
 
 @end

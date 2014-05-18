@@ -10,8 +10,6 @@
 
 @interface AJPaperFlowMainView : AJPaperFlowView
 
-@property (nonatomic, strong) UIScrollView *scrollView;
-
 - (void)pushView:(UIView *)view;
 
 @end

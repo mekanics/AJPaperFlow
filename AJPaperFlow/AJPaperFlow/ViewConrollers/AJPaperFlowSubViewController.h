@@ -14,7 +14,12 @@ typedef enum {
     kAJPaperFlowSubViewStateHidden,
 } AJPaperFlowSubViewState;
 
+@class AJPaperFlowSubViewController;
+
 @protocol AJPaperFlowSubDelegate <NSObject>
+
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController*)controller willSetState:(AJPaperFlowSubViewState)newState fromState:(AJPaperFlowSubViewState)oldState;
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController*)controller didSetState:(AJPaperFlowSubViewState)newState fromState:(AJPaperFlowSubViewState)oldState;
 
 @end
 

@@ -17,6 +17,9 @@
 @property (nonatomic, assign) CGFloat cornerRadius UI_APPEARANCE_SELECTOR;
 @property (nonatomic, assign) CGFloat subViewsProportion UI_APPEARANCE_SELECTOR;
 
+@property (nonatomic, strong) UIScrollView *scrollView;
+
+
 - (void)removeViews;
 
 @end

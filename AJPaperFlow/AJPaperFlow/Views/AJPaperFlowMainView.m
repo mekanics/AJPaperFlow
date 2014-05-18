@@ -22,9 +22,9 @@
         _originFrame = frame;
         _views = [[NSMutableArray alloc] init];
 
-        _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-        [self addSubview:_scrollView];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        [self addSubview:self.scrollView];
     }
     return self;
 }
@@ -40,8 +40,8 @@
 
     self.layer.masksToBounds = YES;
 
-    _scrollView.pagingEnabled = YES;
-    _scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
 }
 
 
@@ -53,9 +53,9 @@
     view.layer.cornerRadius = self.cornerRadius;
     view.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
-    [_scrollView addSubview:view];
+    [self.scrollView addSubview:view];
     
-    _scrollView.contentSize = CGSizeMake(CGRectGetMaxX(view.frame), CGRectGetHeight(self.frame));
+    self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(view.frame), CGRectGetHeight(self.frame));
     
     [_views addObject:view];
 }

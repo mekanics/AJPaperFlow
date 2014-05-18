@@ -50,9 +50,11 @@
 }
 
 - (void)removeViews {
-    [_views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [_views enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIView *view = (UIView*)obj;
         [view removeFromSuperview];
+
+        _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width - CGRectGetWidth(view.frame), CGRectGetHeight(_scrollView.frame));
     }];
 
     [_views removeAllObjects];
