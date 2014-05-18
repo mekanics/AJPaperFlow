@@ -33,8 +33,8 @@ AJDummyViewController *(^dummyMainViewController)(NSString *) = ^(NSString *titl
 
 
     AJPaperFlowViewController *exampleCV = [[AJPaperFlowViewController alloc] initWithViewControllers:@[
-                                                dummyMainViewController(@"View 1"),
-                                                dummyMainViewController(@"View 2")]];
+                                  dummyMainViewController(@"View 1"),
+                                  dummyMainViewController(@"View 2")]];
     self.window.rootViewController = exampleCV;
 
     [self.window makeKeyAndVisible];
