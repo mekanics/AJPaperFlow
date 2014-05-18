@@ -21,16 +21,20 @@
     _v = [[AJPaperFlowSubView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _v.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _v.delegate = self;
-    
-    _v.backgroundColor = [UIColor grayColor];
-    
-    self.view = _v;
-}
 
+    self.view = _v;
+
+    _v.backgroundColor = [UIColor grayColor];
+    _v.layer.borderColor = [UIColor redColor].CGColor;
+    _v.layer.borderWidth = 1;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [self.view addGestureRecognizer:panGestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +48,10 @@
     [viewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [_v pushView:((UIViewController*)obj).view];
     }];
+}
+
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+    NSLog(@"Swiped horizontally...");
 }
 
 @end

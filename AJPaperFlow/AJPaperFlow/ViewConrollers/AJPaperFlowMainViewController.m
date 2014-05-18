@@ -27,6 +27,9 @@
     _v.delegate = self;
     
     self.view = _v;
+    
+    _v.layer.borderColor = [UIColor greenColor].CGColor;
+    _v.layer.borderWidth = 1;
 }
 
 #pragma mark Setter
@@ -63,9 +66,6 @@
 }
 
 #pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat pageWidth = scrollView.frame.size.width;
