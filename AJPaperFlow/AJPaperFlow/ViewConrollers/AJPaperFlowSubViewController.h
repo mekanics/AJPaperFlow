@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <POP/POP.h>
 
 typedef enum {
     kAJPaperFlowSubViewStateDown = 0,
@@ -23,7 +24,7 @@ typedef enum {
 
 @end
 
-@interface AJPaperFlowSubViewController : UIViewController <UIScrollViewDelegate>
+@interface AJPaperFlowSubViewController : UIViewController <UIScrollViewDelegate, POPAnimationDelegate>
 
 @property (nonatomic, retain) id<AJPaperFlowSubDelegate> delegate;
 

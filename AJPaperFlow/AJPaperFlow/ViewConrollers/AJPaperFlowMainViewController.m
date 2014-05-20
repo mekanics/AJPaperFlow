@@ -27,9 +27,6 @@
     _v.scrollView.delegate = self;
     
     self.view = _v;
-    
-    _v.layer.borderColor = [UIColor greenColor].CGColor;
-    _v.layer.borderWidth = 1;
 }
 
 - (void)viewDidLoad {

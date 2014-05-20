@@ -8,12 +8,13 @@
 
 #import "AJPaperFlowSubViewController.h"
 #import "AJPaperFlowSubView.h"
-#import <POP/POP.h>
 
 @interface AJPaperFlowSubViewController ()
 
 @property (nonatomic, strong) AJPaperFlowSubView *v;
 @property (nonatomic, assign) AJPaperFlowSubViewState state;
+
+@property (nonatomic, strong) UIView *tappedSubview;
 
 @end
 
@@ -34,6 +35,9 @@
 
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
+
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -97,8 +101,10 @@
 
         CGRect frame = self.view.frame;
         if (proportion > midProportion) {
+            _state = kAJPaperFlowSubViewStateFullScreen;
             frame = [self frameForState:kAJPaperFlowSubViewStateFullScreen];
         } else {
+            _state = kAJPaperFlowSubViewStateDown;
             frame = [self frameForState:kAJPaperFlowSubViewStateDown];
         }
         POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
@@ -108,7 +114,26 @@
 
 }
 
-#pragma mark - Setter 
+- (void)handleTap:(UITapGestureRecognizer *)recognizer {
+
+    if (_state == kAJPaperFlowSubViewStateDown) {
+
+        _state = (_state + 1) % 2;
+        CGRect frame = [self frameForState:_state];
+
+        // TODO: DRY
+        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+        anim.name = @"tappedAnim";
+        anim.toValue = [NSValue valueWithCGRect:frame];
+        anim.delegate = self;
+        [self.view pop_addAnimation:anim forKey:@"frame"];
+
+        CGPoint loc = [recognizer locationInView:_v];
+        _tappedSubview = [_v hitTest:loc withEvent:nil];
+    }
+}
+
+#pragma mark - Setter
 
 - (void)setState:(AJPaperFlowSubViewState)state {
 
@@ -123,6 +148,20 @@
 
     if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:didSetState:fromState:)]) {
         [_delegate ajPaperFlowSubViewController:self didSetState:newState fromState:oldState];
+    }
+}
+
+#pragma mark - POPAnimationDelegate
+
+- (void)pop_animationDidApply:(POPAnimation *)anim {
+    if ([anim.name isEqualToString:@"tappedAnim"]) {
+        [_v.scrollView scrollRectToVisible:_tappedSubview.frame animated:NO];
+    }
+}
+
+- (void)pop_animationDidStop:(POPAnimation *)anim finished:(BOOL)finished {
+    if ([anim.name isEqualToString:@"tappedAnim"]) {
+        _tappedSubview = nil;
     }
 }
 
