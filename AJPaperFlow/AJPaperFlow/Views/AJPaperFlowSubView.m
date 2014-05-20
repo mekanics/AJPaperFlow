@@ -60,12 +60,13 @@
 }
 
 - (void)pushView:(UIView *)view {
-    CGRect frame = _originFrame;
-    frame.origin.x = CGRectGetMaxX(((UIView*)[_views lastObject]).frame) + 1;
-    frame.size.width = CGRectGetWidth(_originFrame);
-    view.frame = frame;
     [self zoomView:view];
-    
+
+    CGRect frame = view.frame;
+    frame.origin.x = (int)CGRectGetMaxX(((UIView*)[_views lastObject]).frame) + 1.5;
+    frame.origin.y = (int)0;
+    view.frame = frame;
+
     view.layer.cornerRadius = self.cornerRadius;
     
     [self.scrollView addSubview:view];
@@ -76,13 +77,15 @@
 #pragma mark -
 
 - (void)zoomView:(UIView*)view {
-    CGRect frame = view.frame;
-    
-    CGAffineTransform transform = CGAffineTransformMakeScale([self subViewsZoom], [self subViewsZoom]);
+    float zoom = [self subViewsZoom];
+
+    CGRect frame = self.superview.frame;
+    frame.size.width *= zoom;
+    frame.size.height *= zoom;
+
+    CGAffineTransform transform = CGAffineTransformMakeScale(zoom, zoom);
     view.transform = transform;
-    
-    frame.size.width = CGRectGetWidth(view.frame);
-    frame.size.height = CGRectGetHeight(view.frame);
+
     view.frame = frame;
 }
 
