@@ -12,9 +12,11 @@
 
 @interface AJPaperFlowViewController ()
 
-@property (nonatomic, strong) NSMutableArray *viewControllers;
 @property (nonatomic, strong) AJPaperFlowMainViewController *mainViewController;
 @property (nonatomic, strong) AJPaperFlowSubViewController *subViewController;
+
+@property (nonatomic, strong) NSMutableArray *viewControllers;
+@property (nonatomic, strong) UIViewController *currentMainViewController;
 
 @end
 
@@ -25,7 +27,7 @@
     _mainViewController.delegate = self;
     
     _subViewController = [[AJPaperFlowSubViewController alloc] init];
-//    _subViewController.delegate = self;
+    _subViewController.delegate = self;
 }
 
 - (id)init {
@@ -81,10 +83,37 @@
 #pragma mark - AJPaperFlowMainDelegate
 
 - (void)ajPaperFlowViewControllerDidChangeCurrentViewController:(UIViewController *)currentViewController {
-    // TODO
-    NSLog(@"didChangeCurrentViewController %@", currentViewController.title);
-    [self setSubViewControllers:((id<AJPaperFlowProtocol>)currentViewController).subViewControllers];
+
+    if (_currentMainViewController != currentViewController) {
+        _currentMainViewController = currentViewController;
+
+        NSLog(@"didChangeCurrentViewController %@", currentViewController.title);
+        [self setSubViewControllers:((id<AJPaperFlowProtocol>)currentViewController).subViewControllers];
+    }
+
+    [_subViewController scrollToLeft];
+
 }
 
+#pragma mark - AJPaperFlowSubDelegate
+
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller willSetState:(AJPaperFlowSubViewState)newState fromState:(AJPaperFlowSubViewState)oldState {
+
+    switch (newState) {
+        case kAJPaperFlowSubViewStateDown:
+            break;
+
+        case kAJPaperFlowSubViewStateFullScreen:
+            [_mainViewController setState:kAJPaperFlowMainViewStateBack];
+
+            break;
+
+        case kAJPaperFlowSubViewStateHidden:
+            break;
+
+        default:
+            break;
+    }
+}
 
 @end

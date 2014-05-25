@@ -29,5 +29,6 @@ typedef enum {
 @property (nonatomic, retain) id<AJPaperFlowSubDelegate> delegate;
 
 - (void)setViewControllers:(NSArray*)viewControllers;
+- (void)scrollToLeft;
 
 @end

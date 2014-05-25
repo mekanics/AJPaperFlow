@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    kAJPaperFlowMainViewStateTop = 0,
+    kAJPaperFlowMainViewStateFullScreen,
+    kAJPaperFlowMainViewStateBack,
+} AJPaperFlowMainViewState;
+
 @class AJPaperFlowMainViewController;
 
 @protocol AJPaperFlowMainDelegate <NSObject>
@@ -19,6 +25,7 @@
 @interface AJPaperFlowMainViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, retain) id<AJPaperFlowMainDelegate> delegate;
+@property (nonatomic, assign) AJPaperFlowMainViewState state;
 
 - (void)setViewControllers:(NSArray*)viewControllers;
 

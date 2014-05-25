@@ -58,10 +58,6 @@
 }
 
 - (void)setCurrentViewController:(UIViewController *)currentViewController {
-    if (_currentViewController == currentViewController) {
-        return;
-    }
-    
     _currentViewController = currentViewController;
     
     if ([_delegate respondsToSelector:@selector(ajPaperFlowViewControllerDidChangeCurrentViewController:)]) {

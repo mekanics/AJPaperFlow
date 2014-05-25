@@ -83,6 +83,10 @@
     }];
 }
 
+- (void)scrollToLeft {
+    [_v.scrollView setContentOffset:CGPointZero animated:YES];
+}
+
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
 
     static CGRect originalFrame; // or you could make this a non-static class ivar

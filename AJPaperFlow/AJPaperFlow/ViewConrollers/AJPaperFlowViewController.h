@@ -11,7 +11,7 @@
 #import "AJPaperFlowMainViewController.h"
 #import "AJPaperFlowSubViewController.h"
 
-@interface AJPaperFlowViewController : UIViewController <AJPaperFlowMainDelegate>
+@interface AJPaperFlowViewController : UIViewController <AJPaperFlowMainDelegate, AJPaperFlowSubDelegate>
 
 - (id)initWithViewControllers:(NSArray *)viewControllers;
 
