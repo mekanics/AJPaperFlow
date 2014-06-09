@@ -18,7 +18,9 @@ typedef enum {
 
 @protocol AJPaperFlowMainDelegate <NSObject>
 
-- (void)ajPaperFlowViewControllerDidChangeCurrentViewController:(UIViewController*)currentViewController;
+- (void)ajPaperFlowMainViewControllerDidChangeCurrentViewController:(UIViewController*)currentViewController;
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController*)controller willSetState:(AJPaperFlowMainViewState)newState fromState:(AJPaperFlowMainViewState)oldState;
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController*)controller didSetState:(AJPaperFlowMainViewState)newState fromState:(AJPaperFlowMainViewState)oldState;
 
 @end
 
