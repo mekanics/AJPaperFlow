@@ -22,7 +22,7 @@
         _originFrame = frame;
         _views = [[NSMutableArray alloc] init];
 
-        self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:frame];
         self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.scrollView];
     }
@@ -31,12 +31,6 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-
-    _originFrame = self.superview.bounds;
-    CGRect scrollViewFrame = _originFrame;
-    scrollViewFrame.size.height = (int)(CGRectGetHeight(_originFrame) * (1.0-self.subViewsProportion) + kOverlap);
-
-    self.frame = scrollViewFrame;
 
     self.layer.masksToBounds = YES;
 
