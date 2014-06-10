@@ -63,6 +63,11 @@
             stateFrame = originBounds;
             break;
 
+        case kAJPaperFlowSubViewStateHidden:
+            stateFrame = [self frameForState:kAJPaperFlowSubViewStateDown];
+            stateFrame.origin.y = CGRectGetMaxY(stateFrame) - 20;
+            break;
+
         default:
             break;
     }
@@ -85,6 +90,17 @@
 
 - (void)scrollToLeft {
     [_v.scrollView setContentOffset:CGPointZero animated:YES];
+}
+
+- (void)hideViews {
+    self.state = kAJPaperFlowSubViewStateHidden;
+
+    CGRect frame = [self frameForState:kAJPaperFlowSubViewStateHidden];
+
+    POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+    frameAnimation.toValue = [NSValue valueWithCGRect:frame];
+    [self.view pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
+
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
@@ -111,9 +127,9 @@
             _state = kAJPaperFlowSubViewStateDown;
             frame = [self frameForState:kAJPaperFlowSubViewStateDown];
         }
-        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-        anim.toValue = [NSValue valueWithCGRect:frame];
-        [self.view pop_addAnimation:anim forKey:@"frame"];
+        POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+        frameAnimation.toValue = [NSValue valueWithCGRect:frame];
+        [self.view pop_addAnimation:frameAnimation forKey:@"frame"];
     }
 
 }
@@ -140,6 +156,8 @@
 #pragma mark - Setter
 
 - (void)setState:(AJPaperFlowSubViewState)state {
+
+    if (state == _state) return;
 
     AJPaperFlowSubViewState oldState = _state;
     AJPaperFlowSubViewState newState = state;

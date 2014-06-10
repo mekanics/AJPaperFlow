@@ -82,7 +82,7 @@
 
 #pragma mark - AJPaperFlowMainDelegate
 
-- (void)ajPaperFlowViewControllerDidChangeCurrentViewController:(UIViewController *)currentViewController {
+- (void)ajPaperFlowMainViewControllerDidChangeCurrentViewController:(UIViewController *)currentViewController {
 
     if (_currentMainViewController != currentViewController) {
         _currentMainViewController = currentViewController;
@@ -92,6 +92,19 @@
     }
 
     [_subViewController scrollToLeft];
+
+}
+
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller willSetState:(AJPaperFlowMainViewState)newState fromState:(AJPaperFlowMainViewState)oldState {
+
+    if (oldState == kAJPaperFlowMainViewStateTop) {
+        if (newState == kAJPaperFlowMainViewStateFullScreen) {
+            [_subViewController hideViews];
+        }
+    }
+}
+
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didSetState:(AJPaperFlowMainViewState)newState fromState:(AJPaperFlowMainViewState)oldState {
 
 }
 

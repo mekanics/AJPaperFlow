@@ -31,4 +31,6 @@ typedef enum {
 - (void)setViewControllers:(NSArray*)viewControllers;
 - (void)scrollToLeft;
 
+- (void)hideViews;
+
 @end
