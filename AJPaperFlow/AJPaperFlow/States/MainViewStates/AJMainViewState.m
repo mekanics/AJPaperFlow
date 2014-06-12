@@ -10,6 +10,13 @@
 
 @implementation AJMainViewState
 
+- (id)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"-init is not a valid initializer. use initWithContext: instead"
+                                 userInfo:nil];
+    return nil;
+}
+
 - (instancetype)initWithContext:(AJPaperFlowMainViewController *)context {
     self = [super init];
     if (self) {
