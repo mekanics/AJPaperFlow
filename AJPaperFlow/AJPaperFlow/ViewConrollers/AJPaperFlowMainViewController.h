@@ -9,12 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <POP/POP.h>
 
-//typedef enum {
-//    kAJPaperFlowMainViewStateTop = 0,
-//    kAJPaperFlowMainViewStateFullScreen,
-//    kAJPaperFlowMainViewStateBack,
-//} AJPaperFlowMainViewState;
-
 @class AJPaperFlowMainViewController;
 @class AJMainViewState;
 
