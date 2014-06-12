@@ -92,15 +92,25 @@
     [_v.scrollView setContentOffset:CGPointZero animated:YES];
 }
 
+- (void)showViews {
+    self.state = kAJPaperFlowSubViewStateDown;
+
+    [self animToCurrentState];
+}
+
 - (void)hideViews {
     self.state = kAJPaperFlowSubViewStateHidden;
 
-    CGRect frame = [self frameForState:kAJPaperFlowSubViewStateHidden];
+    [self animToCurrentState];
+}
+
+- (void)animToCurrentState {
+    CGRect frame = [self frameForState:self.state];
 
     POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
     frameAnimation.toValue = [NSValue valueWithCGRect:frame];
+    frameAnimation.delegate = self;
     [self.view pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
-
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
@@ -119,17 +129,14 @@
         CGFloat proportion = CGRectGetHeight(self.view.frame) / CGRectGetHeight(self.view.superview.frame);
         CGFloat midProportion = (1.0 + _v.subViewsProportion)/2.0;
 
-        CGRect frame = self.view.frame;
         if (proportion > midProportion) {
             _state = kAJPaperFlowSubViewStateFullScreen;
-            frame = [self frameForState:kAJPaperFlowSubViewStateFullScreen];
         } else {
             _state = kAJPaperFlowSubViewStateDown;
-            frame = [self frameForState:kAJPaperFlowSubViewStateDown];
         }
-        POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-        frameAnimation.toValue = [NSValue valueWithCGRect:frame];
-        [self.view pop_addAnimation:frameAnimation forKey:@"frame"];
+
+        [self animToCurrentState];
+
     }
 
 }
@@ -137,20 +144,12 @@
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
 
     if (_state == kAJPaperFlowSubViewStateDown) {
-
-        _state = (_state + 1) % 2;
-        CGRect frame = [self frameForState:_state];
-
-        // TODO: DRY
-        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-        anim.name = @"tappedAnim";
-        anim.toValue = [NSValue valueWithCGRect:frame];
-        anim.delegate = self;
-        [self.view pop_addAnimation:anim forKey:@"frame"];
-
-        CGPoint loc = [recognizer locationInView:_v];
-        _tappedSubview = [_v hitTest:loc withEvent:nil];
+        self.state = (_state + 1) % 2;
+    } else if (_state == kAJPaperFlowSubViewStateHidden) {
+        self.state = kAJPaperFlowSubViewStateDown;
     }
+
+    [self animToCurrentState];
 }
 
 #pragma mark - Setter

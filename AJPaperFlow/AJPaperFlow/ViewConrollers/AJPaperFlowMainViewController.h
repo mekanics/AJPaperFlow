@@ -7,27 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <POP/POP.h>
 
-typedef enum {
-    kAJPaperFlowMainViewStateTop = 0,
-    kAJPaperFlowMainViewStateFullScreen,
-    kAJPaperFlowMainViewStateBack,
-} AJPaperFlowMainViewState;
+//typedef enum {
+//    kAJPaperFlowMainViewStateTop = 0,
+//    kAJPaperFlowMainViewStateFullScreen,
+//    kAJPaperFlowMainViewStateBack,
+//} AJPaperFlowMainViewState;
 
 @class AJPaperFlowMainViewController;
+@class AJMainViewState;
 
 @protocol AJPaperFlowMainDelegate <NSObject>
 
 - (void)ajPaperFlowMainViewControllerDidChangeCurrentViewController:(UIViewController*)currentViewController;
-- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController*)controller willSetState:(AJPaperFlowMainViewState)newState fromState:(AJPaperFlowMainViewState)oldState;
-- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController*)controller didSetState:(AJPaperFlowMainViewState)newState fromState:(AJPaperFlowMainViewState)oldState;
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController*)controller willSetState:(AJMainViewState*)newState fromState:(AJMainViewState*)oldState;
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController*)controller didSetState:(AJMainViewState*)newState fromState:(AJMainViewState*)oldState;
 
 @end
 
-@interface AJPaperFlowMainViewController : UIViewController <UIScrollViewDelegate>
+@interface AJPaperFlowMainViewController : UIViewController <UIScrollViewDelegate, POPAnimationDelegate>
 
-@property (nonatomic, retain) id<AJPaperFlowMainDelegate> delegate;
-@property (nonatomic, assign) AJPaperFlowMainViewState state;
+@property (nonatomic, strong) id<AJPaperFlowMainDelegate> delegate;
+@property (nonatomic, strong) AJMainViewState *state;
 
 - (void)setViewControllers:(NSArray*)viewControllers;
 

@@ -95,16 +95,20 @@
 
 }
 
-- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller willSetState:(AJPaperFlowMainViewState)newState fromState:(AJPaperFlowMainViewState)oldState {
-
-    if (oldState == kAJPaperFlowMainViewStateTop) {
-        if (newState == kAJPaperFlowMainViewStateFullScreen) {
-            [_subViewController hideViews];
-        }
-    }
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller willSetState:(AJMainViewState *)newState fromState:(AJMainViewState *)oldState {
+//
+//    if (oldState == kAJPaperFlowMainViewStateTop) {
+//        if (newState == kAJPaperFlowMainViewStateFullScreen) {
+//            [_subViewController hideViews];
+//        }
+//    } else if (oldState == kAJPaperFlowMainViewStateFullScreen) {
+//        if (newState == kAJPaperFlowMainViewStateTop) {
+//            [_subViewController showViews];
+//        }
+//    }
 }
 
-- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didSetState:(AJPaperFlowMainViewState)newState fromState:(AJPaperFlowMainViewState)oldState {
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didSetState:(AJMainViewState *)newState fromState:(AJMainViewState *)oldState {
 
 }
 
@@ -112,21 +116,22 @@
 
 - (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller willSetState:(AJPaperFlowSubViewState)newState fromState:(AJPaperFlowSubViewState)oldState {
 
-    switch (newState) {
-        case kAJPaperFlowSubViewStateDown:
-            break;
-
-        case kAJPaperFlowSubViewStateFullScreen:
-            [_mainViewController setState:kAJPaperFlowMainViewStateBack];
-
-            break;
-
-        case kAJPaperFlowSubViewStateHidden:
-            break;
-
-        default:
-            break;
-    }
+//    switch (newState) {
+//        case kAJPaperFlowSubViewStateDown:
+//            [_mainViewController setState:kAJPaperFlowMainViewStateTop];
+//            break;
+//
+//        case kAJPaperFlowSubViewStateFullScreen:
+//            [_mainViewController setState:kAJPaperFlowMainViewStateBack];
+//
+//            break;
+//
+//        case kAJPaperFlowSubViewStateHidden:
+//            break;
+//
+//        default:
+//            break;
+//    }
 }
 
 @end
