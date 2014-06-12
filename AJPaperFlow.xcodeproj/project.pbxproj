@@ -12,6 +12,7 @@
 		B12687C01948BE5D0026BCAE /* AJMainViewState.m in Sources */ = {isa = PBXBuildFile; fileRef = B12687BF1948BE5D0026BCAE /* AJMainViewState.m */; };
 		B12687C31948BEE40026BCAE /* AJMainViewDefaultState.m in Sources */ = {isa = PBXBuildFile; fileRef = B12687C21948BEE40026BCAE /* AJMainViewDefaultState.m */; };
 		B12687C61948C0540026BCAE /* AJMainViewFullScreenState.m in Sources */ = {isa = PBXBuildFile; fileRef = B12687C51948C0540026BCAE /* AJMainViewFullScreenState.m */; };
+		B13D069F194A3F86008A5F90 /* AJMainViewStateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B13D069E194A3F86008A5F90 /* AJMainViewStateSpec.m */; };
 		B1ADAF8118F3349C00B13AA7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */; };
 		B1C9269F190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */; };
 		B1E9A206191FB1D500E2C01A /* AJPaperFlowMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9A205191FB1D500E2C01A /* AJPaperFlowMainViewController.m */; };
@@ -57,6 +58,7 @@
 		B12687C21948BEE40026BCAE /* AJMainViewDefaultState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMainViewDefaultState.m; sourceTree = "<group>"; };
 		B12687C41948C0540026BCAE /* AJMainViewFullScreenState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMainViewFullScreenState.h; sourceTree = "<group>"; };
 		B12687C51948C0540026BCAE /* AJMainViewFullScreenState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMainViewFullScreenState.m; sourceTree = "<group>"; };
+		B13D069E194A3F86008A5F90 /* AJMainViewStateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMainViewStateSpec.m; sourceTree = "<group>"; };
 		B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPaperFlowViewControllerSpec.m; sourceTree = "<group>"; };
 		B1E9A204191FB1D500E2C01A /* AJPaperFlowMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPaperFlowMainViewController.h; sourceTree = "<group>"; };
@@ -146,6 +148,22 @@
 			path = MainViewStates;
 			sourceTree = "<group>";
 		};
+		B13D069C194A3CC0008A5F90 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				B13D069D194A3CE3008A5F90 /* MainViewStates */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		B13D069D194A3CE3008A5F90 /* MainViewStates */ = {
+			isa = PBXGroup;
+			children = (
+				B13D069E194A3F86008A5F90 /* AJMainViewStateSpec.m */,
+			);
+			path = MainViewStates;
+			sourceTree = "<group>";
+		};
 		B1ADAF8218F3426300B13AA7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +238,7 @@
 		B1F18A8718F3292900D91054 /* AJPaperFlowTests */ = {
 			isa = PBXGroup;
 			children = (
+				B13D069C194A3CC0008A5F90 /* States */,
 				B1F18A8818F3292900D91054 /* Supporting Files */,
 				B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */,
 			);
@@ -455,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1C9269F190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m in Sources */,
+				B13D069F194A3F86008A5F90 /* AJMainViewStateSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
