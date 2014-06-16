@@ -9,29 +9,22 @@
 #import <UIKit/UIKit.h>
 #import <POP/POP.h>
 
-typedef enum {
-    kAJPaperFlowSubViewStateDown = 0,
-    kAJPaperFlowSubViewStateFullScreen,
-    kAJPaperFlowSubViewStateHidden,
-} AJPaperFlowSubViewState;
-
 @class AJPaperFlowSubViewController;
+@class AJSubViewState;
 
 @protocol AJPaperFlowSubDelegate <NSObject>
 
-- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController*)controller willSetState:(AJPaperFlowSubViewState)newState fromState:(AJPaperFlowSubViewState)oldState;
-- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController*)controller didSetState:(AJPaperFlowSubViewState)newState fromState:(AJPaperFlowSubViewState)oldState;
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController*)controller willSetState:(AJSubViewState *)newState fromState:(AJSubViewState *)oldState;
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController*)controller didSetState:(AJSubViewState *)newState fromState:(AJSubViewState *)oldState;
 
 @end
 
 @interface AJPaperFlowSubViewController : UIViewController <UIScrollViewDelegate, POPAnimationDelegate>
 
-@property (nonatomic, retain) id<AJPaperFlowSubDelegate> delegate;
+@property (nonatomic, strong) id<AJPaperFlowSubDelegate> delegate;
+@property (nonatomic, strong) AJSubViewState *state;
 
 - (void)setViewControllers:(NSArray*)viewControllers;
 - (void)scrollToLeft;
-
-- (void)showViews;
-- (void)hideViews;
 
 @end

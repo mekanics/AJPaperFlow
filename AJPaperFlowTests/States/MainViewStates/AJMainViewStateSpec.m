@@ -23,7 +23,12 @@ describe(@"AJMainViewState", ^{
     });
 
     context(@"initWithContext", ^{
-        xit(@"should have a context", ^{
+        it(@"should have a context", ^{
+
+            AJPaperFlowMainViewController *context = [AJPaperFlowMainViewController new];
+            AJMainViewState *state = [[AJMainViewState alloc] initWithContext:context];
+
+            [[state.context shouldNot] beNil];
             
         });
     });

@@ -114,7 +114,7 @@
 
 #pragma mark - AJPaperFlowSubDelegate
 
-- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller willSetState:(AJPaperFlowSubViewState)newState fromState:(AJPaperFlowSubViewState)oldState {
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller willSetState:(AJSubViewState *)newState fromState:(AJSubViewState *)oldState {
 
 //    switch (newState) {
 //        case kAJPaperFlowSubViewStateDown:

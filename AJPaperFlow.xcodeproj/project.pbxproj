@@ -13,6 +13,10 @@
 		B12687C31948BEE40026BCAE /* AJMainViewDefaultState.m in Sources */ = {isa = PBXBuildFile; fileRef = B12687C21948BEE40026BCAE /* AJMainViewDefaultState.m */; };
 		B12687C61948C0540026BCAE /* AJMainViewFullScreenState.m in Sources */ = {isa = PBXBuildFile; fileRef = B12687C51948C0540026BCAE /* AJMainViewFullScreenState.m */; };
 		B13D069F194A3F86008A5F90 /* AJMainViewStateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B13D069E194A3F86008A5F90 /* AJMainViewStateSpec.m */; };
+		B1A5B462194DC03300E81821 /* AJSubViewState.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A5B461194DC03300E81821 /* AJSubViewState.m */; };
+		B1A5B465194DC0D200E81821 /* AJSubViewDefaultState.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A5B464194DC0D200E81821 /* AJSubViewDefaultState.m */; };
+		B1A5B468194DC12600E81821 /* AJSubViewHiddenState.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A5B467194DC12600E81821 /* AJSubViewHiddenState.m */; };
+		B1A5B46B194F579400E81821 /* AJSubViewFullScreenState.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A5B46A194F579400E81821 /* AJSubViewFullScreenState.m */; };
 		B1ADAF8118F3349C00B13AA7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */; };
 		B1C9269F190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */; };
 		B1E9A206191FB1D500E2C01A /* AJPaperFlowMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9A205191FB1D500E2C01A /* AJPaperFlowMainViewController.m */; };
@@ -59,6 +63,14 @@
 		B12687C41948C0540026BCAE /* AJMainViewFullScreenState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMainViewFullScreenState.h; sourceTree = "<group>"; };
 		B12687C51948C0540026BCAE /* AJMainViewFullScreenState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMainViewFullScreenState.m; sourceTree = "<group>"; };
 		B13D069E194A3F86008A5F90 /* AJMainViewStateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMainViewStateSpec.m; sourceTree = "<group>"; };
+		B1A5B460194DC03300E81821 /* AJSubViewState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSubViewState.h; sourceTree = "<group>"; };
+		B1A5B461194DC03300E81821 /* AJSubViewState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSubViewState.m; sourceTree = "<group>"; };
+		B1A5B463194DC0D200E81821 /* AJSubViewDefaultState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSubViewDefaultState.h; sourceTree = "<group>"; };
+		B1A5B464194DC0D200E81821 /* AJSubViewDefaultState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSubViewDefaultState.m; sourceTree = "<group>"; };
+		B1A5B466194DC12600E81821 /* AJSubViewHiddenState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSubViewHiddenState.h; sourceTree = "<group>"; };
+		B1A5B467194DC12600E81821 /* AJSubViewHiddenState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSubViewHiddenState.m; sourceTree = "<group>"; };
+		B1A5B469194F579400E81821 /* AJSubViewFullScreenState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSubViewFullScreenState.h; sourceTree = "<group>"; };
+		B1A5B46A194F579400E81821 /* AJSubViewFullScreenState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSubViewFullScreenState.m; sourceTree = "<group>"; };
 		B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPaperFlowViewControllerSpec.m; sourceTree = "<group>"; };
 		B1E9A204191FB1D500E2C01A /* AJPaperFlowMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPaperFlowMainViewController.h; sourceTree = "<group>"; };
@@ -131,6 +143,14 @@
 		B12687B619479E050026BCAE /* SubViewStates */ = {
 			isa = PBXGroup;
 			children = (
+				B1A5B460194DC03300E81821 /* AJSubViewState.h */,
+				B1A5B461194DC03300E81821 /* AJSubViewState.m */,
+				B1A5B463194DC0D200E81821 /* AJSubViewDefaultState.h */,
+				B1A5B464194DC0D200E81821 /* AJSubViewDefaultState.m */,
+				B1A5B466194DC12600E81821 /* AJSubViewHiddenState.h */,
+				B1A5B467194DC12600E81821 /* AJSubViewHiddenState.m */,
+				B1A5B469194F579400E81821 /* AJSubViewFullScreenState.h */,
+				B1A5B46A194F579400E81821 /* AJSubViewFullScreenState.m */,
 			);
 			path = SubViewStates;
 			sourceTree = "<group>";
@@ -455,17 +475,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1F18A7518F3292900D91054 /* main.m in Sources */,
+				B1A5B462194DC03300E81821 /* AJSubViewState.m in Sources */,
 				B1E9A206191FB1D500E2C01A /* AJPaperFlowMainViewController.m in Sources */,
 				B1E9A209191FB6C500E2C01A /* AJPaperFlowMainView.m in Sources */,
 				B1F18A9E18F32FAA00D91054 /* AJPaperFlowView.m in Sources */,
 				B12687C01948BE5D0026BCAE /* AJMainViewState.m in Sources */,
+				B1A5B465194DC0D200E81821 /* AJSubViewDefaultState.m in Sources */,
 				B12687C61948C0540026BCAE /* AJMainViewFullScreenState.m in Sources */,
 				B1F18A7918F3292900D91054 /* AJAppDelegate.m in Sources */,
+				B1A5B46B194F579400E81821 /* AJSubViewFullScreenState.m in Sources */,
 				B12687C31948BEE40026BCAE /* AJMainViewDefaultState.m in Sources */,
 				B10CCF3518FEE44600E9C01A /* AJDummyViewController.m in Sources */,
 				B1E9A20F192003CB00E2C01A /* AJPaperFlowSubViewController.m in Sources */,
 				B1F18A9B18F32C4600D91054 /* AJPaperFlowViewController.m in Sources */,
 				B1E9A20C192001F700E2C01A /* AJPaperFlowSubView.m in Sources */,
+				B1A5B468194DC12600E81821 /* AJSubViewHiddenState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
