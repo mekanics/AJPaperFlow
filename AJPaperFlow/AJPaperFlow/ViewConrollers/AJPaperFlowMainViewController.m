@@ -51,10 +51,28 @@
 - (void)transitionToCurrentState {
     CGRect frame = _state.frame;
 
-    POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-    frameAnimation.toValue = [NSValue valueWithCGRect:frame];
-    frameAnimation.springBounciness = 6.f;
-    [self.view pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
+    if (!CGRectEqualToRect(frame, CGRectZero)) {
+        POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+        frameAnimation.toValue = [NSValue valueWithCGRect:frame];
+        frameAnimation.springBounciness = 6.f;
+        [self.view pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
+    }
+
+
+    CGSize scale = _state.scale;
+
+    POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimation.toValue  = [NSValue valueWithCGSize:scale];
+    scaleAnimation.springBounciness = 6.f;
+    [self.view.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
+
+
+    CGFloat opacity = _state.opacity;
+
+    POPBasicAnimation *opacityAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
+    opacityAnimation.toValue = @(opacity);
+    [self.view.layer pop_addAnimation:opacityAnimation forKey:@"opacityAnimation"];
+
 }
 
 #pragma mark Setter
@@ -94,21 +112,10 @@
 #pragma mark - Setter
 
 - (void)setState:(AJMainViewState *)state {
-
-    AJMainViewState *oldState = _state;
-    AJMainViewState *newState = state;
-
-    if ([_delegate respondsToSelector:@selector(ajPaperFlowMainViewController:willSetState:fromState:)]) {
-        [_delegate ajPaperFlowMainViewController:self willSetState:newState fromState:oldState];
-    }
-
     _state = state;
 
     [self transitionToCurrentState];
 
-    if ([_delegate respondsToSelector:@selector(ajPaperFlowMainViewController:didSetState:fromState:)]) {
-        [_delegate ajPaperFlowMainViewController:self didSetState:newState fromState:oldState];
-    }
 }
 
 

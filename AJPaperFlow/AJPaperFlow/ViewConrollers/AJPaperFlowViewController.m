@@ -10,6 +10,9 @@
 #import "AJPaperFlowView.h"
 #import "AJPaperFlowProtocol.h"
 
+#import "AJMainViewState.h"
+#import "AJSubViewState.h"
+
 @interface AJPaperFlowViewController ()
 
 @property (nonatomic, strong) AJPaperFlowMainViewController *mainViewController;
@@ -87,51 +90,33 @@
     if (_currentMainViewController != currentViewController) {
         _currentMainViewController = currentViewController;
 
-        NSLog(@"didChangeCurrentViewController %@", currentViewController.title);
         [self setSubViewControllers:((id<AJPaperFlowProtocol>)currentViewController).subViewControllers];
     }
 
     [_subViewController scrollToLeft];
-
 }
 
-- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller willSetState:(AJMainViewState *)newState fromState:(AJMainViewState *)oldState {
-//
-//    if (oldState == kAJPaperFlowMainViewStateTop) {
-//        if (newState == kAJPaperFlowMainViewStateFullScreen) {
-//            [_subViewController hideViews];
-//        }
-//    } else if (oldState == kAJPaperFlowMainViewStateFullScreen) {
-//        if (newState == kAJPaperFlowMainViewStateTop) {
-//            [_subViewController showViews];
-//        }
-//    }
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didHandleTap:(UITapGestureRecognizer *)recognizer {
+
+    // TODO
 }
 
-- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didSetState:(AJMainViewState *)newState fromState:(AJMainViewState *)oldState {
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer {
 
+    // TODO
 }
 
 #pragma mark - AJPaperFlowSubDelegate
 
-- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller willSetState:(AJSubViewState *)newState fromState:(AJSubViewState *)oldState {
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandleTap:(UITapGestureRecognizer *)recognizer {
 
-//    switch (newState) {
-//        case kAJPaperFlowSubViewStateDown:
-//            [_mainViewController setState:kAJPaperFlowMainViewStateTop];
-//            break;
-//
-//        case kAJPaperFlowSubViewStateFullScreen:
-//            [_mainViewController setState:kAJPaperFlowMainViewStateBack];
-//
-//            break;
-//
-//        case kAJPaperFlowSubViewStateHidden:
-//            break;
-//
-//        default:
-//            break;
-//    }
+    [_mainViewController.state subViewDidHandleTap:recognizer];
+}
+
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer {
+
+    [_mainViewController.state subViewDidHandlePan:recognizer];
+
 }
 
 @end

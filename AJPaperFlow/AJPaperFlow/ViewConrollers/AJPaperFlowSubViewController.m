@@ -11,10 +11,11 @@
 
 #import "AJSubViewDefaultState.h"
 
+#import <POP/POP.h>
+
 @interface AJPaperFlowSubViewController ()
 
 @property (nonatomic, strong) AJPaperFlowSubView *v;
-//@property (nonatomic, assign) AJPaperFlowSubViewState state;
 
 @property (nonatomic, strong) UIView *tappedSubview;
 
@@ -56,11 +57,6 @@
     [self.view pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)setViewControllers:(NSArray *)viewControllers {
     [_v removeViews];
     
@@ -75,32 +71,26 @@
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
     [self.state handlePan:recognizer];
+
+    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:didHandlePan:)]) {
+        [_delegate ajPaperFlowSubViewController:self didHandlePan:recognizer];
+    }
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
     [self.state handleTap:recognizer];
+
+    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:didHandleTap:)]) {
+        [_delegate ajPaperFlowSubViewController:self didHandleTap:recognizer];
+    }
 }
 
 #pragma mark - Setter
 
 - (void)setState:(AJSubViewState *)state {
-
-    if (state == _state) return;
-
-    AJSubViewState *oldState = _state;
-    AJSubViewState *newState = state;
-
-    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:willSetState:fromState:)]) {
-        [_delegate ajPaperFlowSubViewController:self willSetState:newState fromState:oldState];
-    }
-
     _state = state;
 
     [self transitionToCurrentState];
-
-    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:didSetState:fromState:)]) {
-        [_delegate ajPaperFlowSubViewController:self didSetState:newState fromState:oldState];
-    }
 }
 
 #pragma mark - POPAnimationDelegate

@@ -7,20 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <POP/POP.h>
 
 @class AJPaperFlowMainViewController;
 @class AJMainViewState;
 
 @protocol AJPaperFlowMainDelegate <NSObject>
 
-- (void)ajPaperFlowMainViewControllerDidChangeCurrentViewController:(UIViewController*)currentViewController;
-- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController*)controller willSetState:(AJMainViewState*)newState fromState:(AJMainViewState*)oldState;
-- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController*)controller didSetState:(AJMainViewState*)newState fromState:(AJMainViewState*)oldState;
+@required
+- (void)ajPaperFlowMainViewControllerDidChangeCurrentViewController:(UIViewController *)currentViewController;
 
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didHandleTap:(UITapGestureRecognizer *)recognizer;
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer;
 @end
 
-@interface AJPaperFlowMainViewController : UIViewController <UIScrollViewDelegate, POPAnimationDelegate>
+@interface AJPaperFlowMainViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, strong) id<AJPaperFlowMainDelegate> delegate;
 @property (nonatomic, strong) AJMainViewState *state;

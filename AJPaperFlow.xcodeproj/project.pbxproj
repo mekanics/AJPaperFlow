@@ -17,6 +17,7 @@
 		B1A5B465194DC0D200E81821 /* AJSubViewDefaultState.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A5B464194DC0D200E81821 /* AJSubViewDefaultState.m */; };
 		B1A5B468194DC12600E81821 /* AJSubViewHiddenState.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A5B467194DC12600E81821 /* AJSubViewHiddenState.m */; };
 		B1A5B46B194F579400E81821 /* AJSubViewFullScreenState.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A5B46A194F579400E81821 /* AJSubViewFullScreenState.m */; };
+		B1A5B46E1950BABE00E81821 /* AJMainViewHiddenState.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A5B46D1950BABE00E81821 /* AJMainViewHiddenState.m */; };
 		B1ADAF8118F3349C00B13AA7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */; };
 		B1C9269F190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */; };
 		B1E9A206191FB1D500E2C01A /* AJPaperFlowMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9A205191FB1D500E2C01A /* AJPaperFlowMainViewController.m */; };
@@ -71,6 +72,8 @@
 		B1A5B467194DC12600E81821 /* AJSubViewHiddenState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSubViewHiddenState.m; sourceTree = "<group>"; };
 		B1A5B469194F579400E81821 /* AJSubViewFullScreenState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSubViewFullScreenState.h; sourceTree = "<group>"; };
 		B1A5B46A194F579400E81821 /* AJSubViewFullScreenState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSubViewFullScreenState.m; sourceTree = "<group>"; };
+		B1A5B46C1950BABE00E81821 /* AJMainViewHiddenState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMainViewHiddenState.h; sourceTree = "<group>"; };
+		B1A5B46D1950BABE00E81821 /* AJMainViewHiddenState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMainViewHiddenState.m; sourceTree = "<group>"; };
 		B1ADAF8018F3349C00B13AA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B1C9269E190ED3F600EC0EB6 /* AJPaperFlowViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPaperFlowViewControllerSpec.m; sourceTree = "<group>"; };
 		B1E9A204191FB1D500E2C01A /* AJPaperFlowMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPaperFlowMainViewController.h; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				B12687C21948BEE40026BCAE /* AJMainViewDefaultState.m */,
 				B12687C41948C0540026BCAE /* AJMainViewFullScreenState.h */,
 				B12687C51948C0540026BCAE /* AJMainViewFullScreenState.m */,
+				B1A5B46C1950BABE00E81821 /* AJMainViewHiddenState.h */,
+				B1A5B46D1950BABE00E81821 /* AJMainViewHiddenState.m */,
 			);
 			path = MainViewStates;
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 				B1F18A9B18F32C4600D91054 /* AJPaperFlowViewController.m in Sources */,
 				B1E9A20C192001F700E2C01A /* AJPaperFlowSubView.m in Sources */,
 				B1A5B468194DC12600E81821 /* AJSubViewHiddenState.m in Sources */,
+				B1A5B46E1950BABE00E81821 /* AJMainViewHiddenState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

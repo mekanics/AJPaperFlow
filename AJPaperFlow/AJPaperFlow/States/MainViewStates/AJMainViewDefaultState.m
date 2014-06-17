@@ -8,6 +8,7 @@
 
 #import "AJMainViewDefaultState.h"
 #import "AJMainViewFullScreenState.h"
+#import "AJMainViewHiddenState.h"
 
 #import "AJPaperFlowView.h"
 
@@ -26,5 +27,20 @@
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
     self.context.state = [[AJMainViewFullScreenState alloc] initWithContext:self.context];
 }
+
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+    // do nothing
+}
+
+#pragma mark -
+
+- (void)subViewDidHandleTap:(UITapGestureRecognizer *)recognizer {
+    self.context.state = [[AJMainViewHiddenState alloc] initWithContext:self.context];
+}
+
+- (void)subViewDidHandlePan:(UIPanGestureRecognizer *)recognizer {
+    // TODO
+}
+
 
 @end

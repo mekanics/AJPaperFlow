@@ -1,18 +1,28 @@
 //
-//  AJMainViewFullScreenState.m
+//  AJMainViewHiddenState.m
 //  AJPaperFlow
 //
-//  Created by Alexandre Joly on 11/06/14.
+//  Created by Alexandre Joly on 17/06/14.
 //  Copyright (c) 2014 Alexandre Joly. All rights reserved.
 //
 
-#import "AJMainViewFullScreenState.h"
+#import "AJMainViewHiddenState.h"
 #import "AJMainViewDefaultState.h"
 
-@implementation AJMainViewFullScreenState
+#import "AJPaperFlowView.h"
+
+@implementation AJMainViewHiddenState
 
 - (CGRect)frame {
-    return self.context.view.superview.bounds;
+    return CGRectZero;
+}
+
+- (CGSize)scale {
+    return CGSizeMake(0.9, 0.9);
+}
+
+- (CGFloat)opacity {
+    return 0.3f;
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
@@ -20,13 +30,13 @@
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
-    // TODO
+    // do nothing
 }
 
 #pragma mark -
 
 - (void)subViewDidHandleTap:(UITapGestureRecognizer *)recognizer {
-    self.context.state = [[AJMainViewDefaultState alloc] initWithContext:self.context];
+    // do nothing
 }
 
 - (void)subViewDidHandlePan:(UIPanGestureRecognizer *)recognizer {
