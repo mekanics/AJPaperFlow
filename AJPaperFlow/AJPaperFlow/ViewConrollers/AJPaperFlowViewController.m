@@ -10,6 +10,9 @@
 #import "AJPaperFlowView.h"
 #import "AJPaperFlowProtocol.h"
 
+#import "AJMainViewState.h"
+#import "AJSubViewState.h"
+
 @interface AJPaperFlowViewController ()
 
 @property (nonatomic, strong) AJPaperFlowMainViewController *mainViewController;
@@ -87,46 +90,33 @@
     if (_currentMainViewController != currentViewController) {
         _currentMainViewController = currentViewController;
 
-        NSLog(@"didChangeCurrentViewController %@", currentViewController.title);
         [self setSubViewControllers:((id<AJPaperFlowProtocol>)currentViewController).subViewControllers];
     }
 
     [_subViewController scrollToLeft];
-
 }
 
-- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller willSetState:(AJPaperFlowMainViewState)newState fromState:(AJPaperFlowMainViewState)oldState {
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didHandleTap:(UITapGestureRecognizer *)recognizer {
 
-    if (oldState == kAJPaperFlowMainViewStateTop) {
-        if (newState == kAJPaperFlowMainViewStateFullScreen) {
-            [_subViewController hideViews];
-        }
-    }
+    // TODO
 }
 
-- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didSetState:(AJPaperFlowMainViewState)newState fromState:(AJPaperFlowMainViewState)oldState {
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer {
 
+    // TODO
 }
 
 #pragma mark - AJPaperFlowSubDelegate
 
-- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller willSetState:(AJPaperFlowSubViewState)newState fromState:(AJPaperFlowSubViewState)oldState {
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandleTap:(UITapGestureRecognizer *)recognizer {
 
-    switch (newState) {
-        case kAJPaperFlowSubViewStateDown:
-            break;
+    [_mainViewController.state subViewDidHandleTap:recognizer];
+}
 
-        case kAJPaperFlowSubViewStateFullScreen:
-            [_mainViewController setState:kAJPaperFlowMainViewStateBack];
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer {
 
-            break;
+    [_mainViewController.state subViewDidHandlePan:recognizer];
 
-        case kAJPaperFlowSubViewStateHidden:
-            break;
-
-        default:
-            break;
-    }
 }
 
 @end

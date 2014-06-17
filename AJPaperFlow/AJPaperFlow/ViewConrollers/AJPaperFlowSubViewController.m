@@ -9,10 +9,13 @@
 #import "AJPaperFlowSubViewController.h"
 #import "AJPaperFlowSubView.h"
 
+#import "AJSubViewDefaultState.h"
+
+#import <POP/POP.h>
+
 @interface AJPaperFlowSubViewController ()
 
 @property (nonatomic, strong) AJPaperFlowSubView *v;
-@property (nonatomic, assign) AJPaperFlowSubViewState state;
 
 @property (nonatomic, strong) UIView *tappedSubview;
 
@@ -21,8 +24,6 @@
 @implementation AJPaperFlowSubViewController
 
 - (void)loadView {
-    _state = kAJPaperFlowSubViewStateDown;
-
     _v = [[AJPaperFlowSubView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _v.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _v.scrollView.delegate = self;
@@ -42,42 +43,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    _v.frame = [self frameForState:_state];
-    _v.layer.masksToBounds = YES;
+
+    _state = [[AJSubViewDefaultState alloc] initWithContext:self];
+    _v.frame = self.state.frame;
 }
 
+- (void)transitionToCurrentState {
+    CGRect frame = _state.frame;
 
-- (CGRect)frameForState:(AJPaperFlowSubViewState)state {
-
-    CGRect stateFrame = CGRectZero;
-    CGRect originBounds = _v.superview.bounds;
-
-    switch (state) {
-        case kAJPaperFlowSubViewStateDown:
-            stateFrame = originBounds;
-            stateFrame.origin.y = (int)(CGRectGetHeight(originBounds) - (CGRectGetHeight(originBounds) * _v.subViewsProportion));
-            stateFrame.size.height = (int)(CGRectGetHeight(stateFrame) * _v.subViewsProportion);
-            break;
-
-        case kAJPaperFlowSubViewStateFullScreen:
-            stateFrame = originBounds;
-            break;
-
-        case kAJPaperFlowSubViewStateHidden:
-            stateFrame = [self frameForState:kAJPaperFlowSubViewStateDown];
-            stateFrame.origin.y = CGRectGetMaxY(stateFrame) - 20;
-            break;
-
-        default:
-            break;
-    }
-
-    return stateFrame;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+    frameAnimation.toValue = [NSValue valueWithCGRect:frame];
+    frameAnimation.springBounciness = 6.f;
+    [self.view pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
 }
 
 - (void)setViewControllers:(NSArray *)viewControllers {
@@ -92,85 +69,28 @@
     [_v.scrollView setContentOffset:CGPointZero animated:YES];
 }
 
-- (void)hideViews {
-    self.state = kAJPaperFlowSubViewStateHidden;
-
-    CGRect frame = [self frameForState:kAJPaperFlowSubViewStateHidden];
-
-    POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-    frameAnimation.toValue = [NSValue valueWithCGRect:frame];
-    [self.view pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
-
-}
-
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+    [self.state handlePan:recognizer];
 
-    static CGRect originalFrame; // or you could make this a non-static class ivar
-
-    if (recognizer.state == UIGestureRecognizerStateBegan) {
-        originalFrame = self.view.frame;
-    } else if (recognizer.state == UIGestureRecognizerStateChanged) {
-        CGPoint translation = [recognizer translationInView:self.view];
-        CGRect newFrame = originalFrame;
-        newFrame.origin.y += translation.y;
-        newFrame.size.height += (translation.y * -1);
-        self.view.frame = newFrame;
-    } else if (recognizer.state == UIGestureRecognizerStateEnded) {
-        CGFloat proportion = CGRectGetHeight(self.view.frame) / CGRectGetHeight(self.view.superview.frame);
-        CGFloat midProportion = (1.0 + _v.subViewsProportion)/2.0;
-
-        CGRect frame = self.view.frame;
-        if (proportion > midProportion) {
-            _state = kAJPaperFlowSubViewStateFullScreen;
-            frame = [self frameForState:kAJPaperFlowSubViewStateFullScreen];
-        } else {
-            _state = kAJPaperFlowSubViewStateDown;
-            frame = [self frameForState:kAJPaperFlowSubViewStateDown];
-        }
-        POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-        frameAnimation.toValue = [NSValue valueWithCGRect:frame];
-        [self.view pop_addAnimation:frameAnimation forKey:@"frame"];
+    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:didHandlePan:)]) {
+        [_delegate ajPaperFlowSubViewController:self didHandlePan:recognizer];
     }
-
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
+    [self.state handleTap:recognizer];
 
-    if (_state == kAJPaperFlowSubViewStateDown) {
-
-        _state = (_state + 1) % 2;
-        CGRect frame = [self frameForState:_state];
-
-        // TODO: DRY
-        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-        anim.name = @"tappedAnim";
-        anim.toValue = [NSValue valueWithCGRect:frame];
-        anim.delegate = self;
-        [self.view pop_addAnimation:anim forKey:@"frame"];
-
-        CGPoint loc = [recognizer locationInView:_v];
-        _tappedSubview = [_v hitTest:loc withEvent:nil];
+    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:didHandleTap:)]) {
+        [_delegate ajPaperFlowSubViewController:self didHandleTap:recognizer];
     }
 }
 
 #pragma mark - Setter
 
-- (void)setState:(AJPaperFlowSubViewState)state {
-
-    if (state == _state) return;
-
-    AJPaperFlowSubViewState oldState = _state;
-    AJPaperFlowSubViewState newState = state;
-
-    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:willSetState:fromState:)]) {
-        [_delegate ajPaperFlowSubViewController:self willSetState:newState fromState:oldState];
-    }
-
+- (void)setState:(AJSubViewState *)state {
     _state = state;
 
-    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:didSetState:fromState:)]) {
-        [_delegate ajPaperFlowSubViewController:self didSetState:newState fromState:oldState];
-    }
+    [self transitionToCurrentState];
 }
 
 #pragma mark - POPAnimationDelegate

@@ -7,30 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <POP/POP.h>
-
-typedef enum {
-    kAJPaperFlowSubViewStateDown = 0,
-    kAJPaperFlowSubViewStateFullScreen,
-    kAJPaperFlowSubViewStateHidden,
-} AJPaperFlowSubViewState;
 
 @class AJPaperFlowSubViewController;
+@class AJSubViewState;
 
 @protocol AJPaperFlowSubDelegate <NSObject>
 
-- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController*)controller willSetState:(AJPaperFlowSubViewState)newState fromState:(AJPaperFlowSubViewState)oldState;
-- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController*)controller didSetState:(AJPaperFlowSubViewState)newState fromState:(AJPaperFlowSubViewState)oldState;
+@required
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandleTap:(UITapGestureRecognizer *)recognizer;
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer;
 
 @end
 
-@interface AJPaperFlowSubViewController : UIViewController <UIScrollViewDelegate, POPAnimationDelegate>
+@interface AJPaperFlowSubViewController : UIViewController <UIScrollViewDelegate>
 
-@property (nonatomic, retain) id<AJPaperFlowSubDelegate> delegate;
+@property (nonatomic, strong) id<AJPaperFlowSubDelegate> delegate;
+@property (nonatomic, strong) AJSubViewState *state;
 
 - (void)setViewControllers:(NSArray*)viewControllers;
 - (void)scrollToLeft;
-
-- (void)hideViews;
 
 @end

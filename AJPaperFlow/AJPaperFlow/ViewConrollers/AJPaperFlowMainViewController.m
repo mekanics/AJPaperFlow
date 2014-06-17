@@ -9,7 +9,9 @@
 #import "AJPaperFlowMainViewController.h"
 #import "AJPaperFlowMainView.h"
 
-#import <POPSpringAnimation.h>
+#import "AJMainViewDefaultState.h"
+
+#import <POP/POP.h>
 
 @interface AJPaperFlowMainViewController ()
 
@@ -42,11 +44,35 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    CGRect originFrame = _v.superview.bounds;
-    CGRect scrollViewFrame = originFrame;
-    scrollViewFrame.size.height = (int)(CGRectGetHeight(originFrame) * (1.0-_v.subViewsProportion) + kOverlap);
+    _state = [[AJMainViewDefaultState alloc] initWithContext:self];
+    _v.frame = self.state.frame;
+}
 
-    _v.frame = scrollViewFrame;
+- (void)transitionToCurrentState {
+    CGRect frame = _state.frame;
+
+    if (!CGRectEqualToRect(frame, CGRectZero)) {
+        POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+        frameAnimation.toValue = [NSValue valueWithCGRect:frame];
+        frameAnimation.springBounciness = 6.f;
+        [self.view pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
+    }
+
+
+    CGSize scale = _state.scale;
+
+    POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimation.toValue  = [NSValue valueWithCGSize:scale];
+    scaleAnimation.springBounciness = 6.f;
+    [self.view.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
+
+
+    CGFloat opacity = _state.opacity;
+
+    POPBasicAnimation *opacityAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
+    opacityAnimation.toValue = @(opacity);
+    [self.view.layer pop_addAnimation:opacityAnimation forKey:@"opacityAnimation"];
+
 }
 
 #pragma mark Setter
@@ -79,63 +105,17 @@
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
-    NSLog(@"Tap...");
-
-    switch (_state) {
-        case kAJPaperFlowMainViewStateTop:
-            self.state = kAJPaperFlowMainViewStateFullScreen;
-            [self sizeUpView:_v];
-
-            break;
-
-        case kAJPaperFlowMainViewStateFullScreen:
-            self.state = kAJPaperFlowMainViewStateTop;
-            [self sizeDownView:_v];
-
-            break;
-
-        default:
-            break;
-    }
+    [_state handleTap:recognizer];
 }
 
-- (void)sizeUpView:(UIView *)view {
-    POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-    frameAnimation.toValue = [NSValue valueWithCGRect:view.superview.bounds];
-    frameAnimation.springBounciness = 10.f;
-    [view pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
-}
-
-- (void)sizeDownView:(UIView *)view {
-
-    CGRect originFrame = view.superview.bounds;
-    CGRect scrollViewFrame = originFrame;
-    scrollViewFrame.size.height = (int)(CGRectGetHeight(originFrame) * (1.0-_v.subViewsProportion) + kOverlap);
-
-    POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-    frameAnimation.toValue = [NSValue valueWithCGRect:scrollViewFrame];
-    frameAnimation.springBounciness = 10.f;
-    [view pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
-}
 
 #pragma mark - Setter
 
-- (void)setState:(AJPaperFlowMainViewState)state {
-
-    if (state == _state) return;
-
-    AJPaperFlowMainViewState oldState = _state;
-    AJPaperFlowMainViewState newState = state;
-
-    if ([_delegate respondsToSelector:@selector(ajPaperFlowMainViewController:willSetState:fromState:)]) {
-        [_delegate ajPaperFlowMainViewController:self willSetState:newState fromState:oldState];
-    }
-
+- (void)setState:(AJMainViewState *)state {
     _state = state;
 
-    if ([_delegate respondsToSelector:@selector(ajPaperFlowMainViewController:didSetState:fromState:)]) {
-        [_delegate ajPaperFlowMainViewController:self didSetState:newState fromState:oldState];
-    }
+    [self transitionToCurrentState];
+
 }
 
 
@@ -152,5 +132,6 @@
     }
     self.currentViewController = [_viewControllers objectAtIndex:_currentPage];
 }
+
 
 @end
