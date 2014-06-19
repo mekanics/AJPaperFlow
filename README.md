@@ -12,10 +12,18 @@
 
 ** TODO **
 
+## Demo
+
+ - clone the project 
+ - install the pods `pod install`
+ - run
+
 ## TODO
 
  - Cocoapod
- - animations
+ - tests tests tests
+ - handle scrollviews
+ - some transitions
  - and much much more ... 
 
 ## Contributing
