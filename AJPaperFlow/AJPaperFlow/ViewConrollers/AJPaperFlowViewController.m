@@ -10,34 +10,40 @@
 #import "AJPaperFlowView.h"
 #import "AJPaperFlowProtocol.h"
 
+#import "AJMainViewState.h"
+#import "AJSubViewState.h"
+
 @interface AJPaperFlowViewController ()
 
+@property (nonatomic, strong) AJPaperFlowMainViewController *mainViewController;
+@property (nonatomic, strong) AJPaperFlowSubViewController *subViewController;
+
 @property (nonatomic, strong) NSMutableArray *viewControllers;
-@property (nonatomic, strong) AJPaperFlowView *v;
-@property (nonatomic, assign) NSInteger currentPage;
-@property (nonatomic, strong) UIViewController<AJPaperFlowProtocol> *currentMainViewController;
+@property (nonatomic, strong) UIViewController *currentMainViewController;
 
 @end
 
 @implementation AJPaperFlowViewController
 
 - (void)initialization {
-
+    _mainViewController = [[AJPaperFlowMainViewController alloc] init];
+    _mainViewController.delegate = self;
+    
+    _subViewController = [[AJPaperFlowSubViewController alloc] init];
+    _subViewController.delegate = self;
 }
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         [self initialization];
-        
+
         _viewControllers = [NSMutableArray new];
-        
     }
     return self;
 }
 
-- (id)initWithViewControllers:(NSArray*)viewControllers {
+- (id)initWithViewControllers:(NSArray *)viewControllers {
     self = [super init];
     if (self) {
         [self initialization];
@@ -47,76 +53,70 @@
     return self;
 }
 
-- (void)loadView {
-    
-    CGRect frame = [[UIScreen mainScreen] bounds];
-    _v = [[AJPaperFlowView alloc] initWithFrame:frame];
-    
-    _v.mainScrollView.delegate = self;
-
-    self.view = _v;
+- (void)viewDidLoad {
+    self.view.frame = [[UIScreen mainScreen] bounds];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+- (void)setMainViewControllers:(NSArray *)viewControllers {
+    [viewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSAssert([obj conformsToProtocol:@protocol(AJPaperFlowProtocol)], @"'%@' doesn't conform to the protocol 'AJPaperFlowProtocol'", NSStringFromClass([obj class]));
+    }];
+    
+    [_mainViewController setViewControllers:viewControllers];
+}
+
+- (void)setSubViewControllers:(NSArray *)viewControllers {
+    [_subViewController setViewControllers:viewControllers];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.view addSubview:_mainViewController.view];
+    [self.view addSubview:_subViewController.view];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    [self setMainViews];
+    [self setMainViewControllers:_viewControllers];
+    [self setSubViewControllers:((id<AJPaperFlowProtocol>)[_viewControllers firstObject]).subViewControllers];
 }
 
-- (void)addViewController:(UIViewController *)viewController {
-    NSAssert([viewController conformsToProtocol:@protocol(AJPaperFlowProtocol)], @"The viewcController doesn't conform to the protocol 'AJPaperFlowProtocol'");
-    
-    [_v pushMainView:viewController.view];
+#pragma mark - AJPaperFlowMainDelegate
+
+- (void)ajPaperFlowMainViewControllerDidChangeCurrentViewController:(UIViewController *)currentViewController {
+
+    if (_currentMainViewController != currentViewController) {
+        _currentMainViewController = currentViewController;
+
+        [self setSubViewControllers:((id<AJPaperFlowProtocol>)currentViewController).subViewControllers];
+    }
+
+    [_subViewController scrollToLeft];
 }
 
-- (void)insertViewController:(UIViewController *)viewController atIndex:(NSInteger)index {
-    
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didHandleTap:(UITapGestureRecognizer *)recognizer {
+
+    // TODO
 }
 
-- (void)setMainViews {
-    [_viewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSAssert([obj conformsToProtocol:@protocol(AJPaperFlowProtocol)], @"The viewcController doesn't conform to the protocol 'AJPaperFlowProtocol'");
-        
-        [_v pushMainView:((UIViewController*)obj).view];
-        
-        if (!idx) [self setCurrentMainViewController:obj];
-        
-    }];
+- (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer {
+
+    // TODO
 }
 
-- (void)setSubViewsOfViewController:(UIViewController<AJPaperFlowProtocol>*)mainViewController {
-    [_v removeSubViews];
-    
-    [mainViewController.subViewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [_v pushSubView:((UIViewController*)obj).view];
-    }];
+#pragma mark - AJPaperFlowSubDelegate
+
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandleTap:(UITapGestureRecognizer *)recognizer {
+
+    [_mainViewController.state subViewDidHandleTap:recognizer];
 }
 
-#pragma mark Setter
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer {
 
-- (void)setCurrentMainViewController:(UIViewController<AJPaperFlowProtocol> *)currentMainViewController {
-    if (_currentMainViewController == currentMainViewController) return;
-    
-    _currentMainViewController = currentMainViewController;
-    
-    [self setSubViewsOfViewController:(UIViewController<AJPaperFlowProtocol> *)_currentMainViewController];
-}
+    [_mainViewController.state subViewDidHandlePan:recognizer];
 
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat pageWidth = scrollView.frame.size.width;
-    _currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    NSLog(@"current page: %ld", (long)_currentPage);
-
-    if ([_viewControllers count] < _currentPage) return;
-    
-    self.currentMainViewController = [_viewControllers objectAtIndex:_currentPage];
 }
 
 @end

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AJPaperFlowViewController : UIViewController <UIScrollViewDelegate>
+#import "AJPaperFlowMainViewController.h"
+#import "AJPaperFlowSubViewController.h"
 
-- (id)initWithViewControllers:(NSArray*)viewControllers;
+@interface AJPaperFlowViewController : UIViewController <AJPaperFlowMainDelegate, AJPaperFlowSubDelegate>
 
-- (void)addViewController:(UIViewController*)viewController;
-- (void)insertViewController:(UIViewController*)viewController atIndex:(NSInteger)index;
+- (id)initWithViewControllers:(NSArray *)viewControllers;
 
 @end

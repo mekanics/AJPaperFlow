@@ -1,5 +1,7 @@
 # AJPaperFlow
 
+[![Build Status](https://travis-ci.org/mekanics/AJPaperFlow.svg?branch=master)](https://travis-ci.org/mekanics/AJPaperFlow)
+
 `AJPaperFlow` is a [Facebook Paper](http://facebook.com/paper) inspired navigation flow. 
 
 ## Installation
