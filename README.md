@@ -21,6 +21,7 @@
 ## TODO
 
  - Cocoapod
+ - make it customisable (UIAppearance, ...)
  - tests tests tests
  - handle scrollviews
  - some transitions
