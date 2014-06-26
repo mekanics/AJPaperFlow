@@ -21,7 +21,8 @@
 ## Infos
 
 ### States
-![State diagram][https://raw.githubusercontent.com/mekanics/AJPaperFlow/master/img/states.jpg]
+
+![State diagram](https://raw.githubusercontent.com/mekanics/AJPaperFlow/master/img/states.jpg)
 
 ## TODO
 
