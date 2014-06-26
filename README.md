@@ -2,21 +2,26 @@
 
 [![Build Status](https://travis-ci.org/mekanics/AJPaperFlow.svg?branch=master)](https://travis-ci.org/mekanics/AJPaperFlow)
 
-`AJPaperFlow` is a [Facebook Paper](http://facebook.com/paper) inspired navigation flow. 
+`AJPaperFlow` is a [Facebook Paper](http://facebook.com/paper) inspired navigation flow.
 
 ## Installation
 
 `AJPaperFlow` will be available through [CocoaPods](http://cocoapods.org)
 
-## Usage 
+## Usage
 
 ** TODO **
 
 ## Demo
 
- - clone the project 
+ - clone the project
  - install the pods `pod install`
  - run
+
+## Infos
+
+### States
+![State diagram][https://raw.github.com/mekanics/AjPaperFlow/master/img/states.jpg]
 
 ## TODO
 
@@ -25,7 +30,7 @@
  - tests tests tests
  - handle scrollviews
  - some transitions
- - and much much more ... 
+ - and much much more ...
 
 ## Contributing
 ### Pull Requests
