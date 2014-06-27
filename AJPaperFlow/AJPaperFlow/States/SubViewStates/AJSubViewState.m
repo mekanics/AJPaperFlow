@@ -30,14 +30,28 @@
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
-                                 userInfo:nil];
+    [self throwShouldOverrideExceptionInSelector:NSStringFromSelector(_cmd)];
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+    [self throwShouldOverrideExceptionInSelector:NSStringFromSelector(_cmd)];
+}
+
+#pragma mark -
+
+- (void)mainViewDidHandleTap:(UITapGestureRecognizer *)recognizer {
+    [self throwShouldOverrideExceptionInSelector:NSStringFromSelector(_cmd)];
+}
+
+- (void)mainViewDidHandlePan:(UIPanGestureRecognizer *)recognizer {
+    [self throwShouldOverrideExceptionInSelector:NSStringFromSelector(_cmd)];
+}
+
+#pragma mark -
+
+- (void)throwShouldOverrideExceptionInSelector:(NSString *)selector {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
+                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass", selector]
                                  userInfo:nil];
 }
 

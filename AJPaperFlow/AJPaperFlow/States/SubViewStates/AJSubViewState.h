@@ -19,4 +19,7 @@
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer;
 - (void)handleTap:(UITapGestureRecognizer *)recognizer;
 
+- (void)mainViewDidHandleTap:(UITapGestureRecognizer *)recognizer;
+- (void)mainViewDidHandlePan:(UIPanGestureRecognizer *)recognizer;
+
 @end

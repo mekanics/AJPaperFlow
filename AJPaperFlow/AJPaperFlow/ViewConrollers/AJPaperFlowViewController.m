@@ -98,7 +98,7 @@
 
 - (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didHandleTap:(UITapGestureRecognizer *)recognizer {
 
-    // TODO
+    [_subViewController.state mainViewDidHandleTap:recognizer];
 }
 
 - (void)ajPaperFlowMainViewController:(AJPaperFlowMainViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer {

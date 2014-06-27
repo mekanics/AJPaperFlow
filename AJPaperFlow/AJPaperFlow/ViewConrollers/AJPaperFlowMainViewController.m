@@ -106,6 +106,10 @@
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
     [_state handleTap:recognizer];
+
+    if ([_delegate respondsToSelector:@selector(ajPaperFlowMainViewController:didHandleTap:)]) {
+        [_delegate ajPaperFlowMainViewController:self didHandleTap:recognizer];
+    }
 }
 
 

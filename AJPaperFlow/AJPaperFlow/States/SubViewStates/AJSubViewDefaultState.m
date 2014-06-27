@@ -55,4 +55,14 @@
     }
 }
 
+#pragma mark -
+
+- (void)mainViewDidHandleTap:(UITapGestureRecognizer *)recognizer {
+    self.context.state = [[AJSubViewHiddenState alloc] initWithContext:self.context];
+}
+
+- (void)mainViewDidHandlePan:(UIPanGestureRecognizer *)recognizer {
+
+}
+
 @end
