@@ -23,7 +23,7 @@
         _views = [[NSMutableArray alloc] init];
 
         self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        self.scrollView.autoresizingMask = UIViewAutoresizingNone;
         [self addSubview:self.scrollView];
     }
     return self;
@@ -34,18 +34,9 @@
 
     _originFrame = self.superview.bounds;
 
-    [_views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        UIView *curView = (UIView*)obj;
+    self.scrollView.frame = self.bounds;
 
-        [self zoomView:curView];
-
-        if (idx) {
-            CGRect frame = curView.frame;
-            frame.origin.x = 1 + CGRectGetMaxX(((UIView*)[_views objectAtIndex:idx-1]).frame);
-            curView.frame = frame;
-        }
-
-    }];
+    [self zoomView];
 
     self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(((UIView*)[_views lastObject]).frame) + 1, CGRectGetHeight(self.frame));
 }
@@ -60,7 +51,8 @@
 }
 
 - (void)pushView:(UIView *)view {
-    [self zoomView:view];
+
+    view.autoresizingMask = UIViewAutoresizingNone;
 
     CGRect frame = view.frame;
     frame.origin.x = (int)CGRectGetMaxX(((UIView*)[_views lastObject]).frame) + 1.5;
@@ -76,17 +68,11 @@
 
 #pragma mark -
 
-- (void)zoomView:(UIView*)view {
+- (void)zoomView {
     float zoom = [self subViewsZoom];
-
-    CGRect frame = self.superview.frame;
-    frame.size.width *= zoom;
-    frame.size.height *= zoom;
-
     CGAffineTransform transform = CGAffineTransformMakeScale(zoom, zoom);
-    view.transform = transform;
 
-    view.frame = frame;
+    self.scrollView.transform = transform;
 }
 
 @end
