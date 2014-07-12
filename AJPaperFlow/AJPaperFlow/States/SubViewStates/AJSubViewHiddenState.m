@@ -29,7 +29,7 @@
 #pragma mark -
 
 - (void)mainViewDidHandleTap:(UITapGestureRecognizer *)recognizer {
-    // TOD
+    self.context.state = [[AJSubViewDefaultState alloc] initWithContext:self.context];
 }
 
 - (void)mainViewDidHandlePan:(UIPanGestureRecognizer *)recognizer {
