@@ -15,7 +15,7 @@
 
 @required
 - (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandleTap:(UITapGestureRecognizer *)recognizer;
-- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer;
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer toRelativeZoom:(CGFloat)relativeZoom;
 
 @end
 

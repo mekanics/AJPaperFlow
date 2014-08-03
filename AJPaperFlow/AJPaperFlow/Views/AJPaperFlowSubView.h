@@ -12,4 +12,7 @@
 
 - (void)pushView:(UIView *)view;
 
+- (CGFloat)subViewsZoom;
+- (CGFloat)relativeSubViewsZoom;
+
 @end

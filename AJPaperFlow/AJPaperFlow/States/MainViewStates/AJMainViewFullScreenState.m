@@ -29,7 +29,7 @@
     self.context.state = [[AJMainViewDefaultState alloc] initWithContext:self.context];
 }
 
-- (void)subViewDidHandlePan:(UIPanGestureRecognizer *)recognizer {
+- (void)subViewDidHandlePan:(UIPanGestureRecognizer *)recognizer toRelativeZoom:(CGFloat)relativeZoom {
     // TODO
 }
 

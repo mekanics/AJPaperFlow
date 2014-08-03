@@ -51,7 +51,7 @@
     [self throwShouldOverrideExceptionInSelector:NSStringFromSelector(_cmd)];
 }
 
-- (void)subViewDidHandlePan:(UIPanGestureRecognizer *)recognizer {
+- (void)subViewDidHandlePan:(UIPanGestureRecognizer *)recognizer toRelativeZoom:(CGFloat)relativeZoom {
     [self throwShouldOverrideExceptionInSelector:NSStringFromSelector(_cmd)];
 }
 

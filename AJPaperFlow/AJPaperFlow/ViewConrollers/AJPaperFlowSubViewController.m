@@ -72,8 +72,8 @@
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
     [self.state handlePan:recognizer];
 
-    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:didHandlePan:)]) {
-        [_delegate ajPaperFlowSubViewController:self didHandlePan:recognizer];
+    if ([_delegate respondsToSelector:@selector(ajPaperFlowSubViewController:didHandlePan:toRelativeZoom:)]) {
+        [_delegate ajPaperFlowSubViewController:self didHandlePan:recognizer toRelativeZoom:_v.relativeSubViewsZoom];
     }
 }
 

@@ -113,9 +113,9 @@
     [_mainViewController.state subViewDidHandleTap:recognizer];
 }
 
-- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer {
+- (void)ajPaperFlowSubViewController:(AJPaperFlowSubViewController *)controller didHandlePan:(UIPanGestureRecognizer *)recognizer toRelativeZoom:(CGFloat)relativeZoom {
 
-    [_mainViewController.state subViewDidHandlePan:recognizer];
+    [_mainViewController.state subViewDidHandlePan:recognizer toRelativeZoom:relativeZoom];
 
 }
 

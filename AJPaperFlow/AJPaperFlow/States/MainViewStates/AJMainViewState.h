@@ -23,6 +23,6 @@
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer;
 
 - (void)subViewDidHandleTap:(UITapGestureRecognizer *)recognizer;
-- (void)subViewDidHandlePan:(UIPanGestureRecognizer *)recognizer;
+- (void)subViewDidHandlePan:(UIPanGestureRecognizer *)recognizer toRelativeZoom:(CGFloat)relativeZoom;
 
 @end

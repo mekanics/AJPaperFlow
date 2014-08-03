@@ -50,6 +50,14 @@
     return proportion;
 }
 
+- (CGFloat)relativeSubViewsZoom {
+    CGFloat relativeZoom = ([self subViewsZoom] - self.subViewsProportion) / (1.0 - self.subViewsProportion);
+    relativeZoom = MIN(relativeZoom, 1.0);
+    relativeZoom = MAX(relativeZoom, 0.0);
+    return relativeZoom;
+
+}
+
 - (void)pushView:(UIView *)view {
 
     view.autoresizingMask = UIViewAutoresizingNone;
