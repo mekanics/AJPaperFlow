@@ -8,5 +8,3 @@ before_script:
 
 before_install:
   - gem update cocoapods
-  - brew update
-  - brew upgrade xctool
