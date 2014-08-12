@@ -8,6 +8,8 @@
 
 #import "AJPaperFlowSubView.h"
 
+#define kGap 1.5
+
 @interface AJPaperFlowSubView ()
 
 @property (nonatomic, assign) CGRect originFrame;
@@ -22,7 +24,7 @@
         _originFrame = frame;
         _views = [[NSMutableArray alloc] init];
 
-        self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
         self.scrollView.autoresizingMask = UIViewAutoresizingNone;
         [self addSubview:self.scrollView];
     }
@@ -34,7 +36,10 @@
 
     _originFrame = self.superview.bounds;
 
-    self.scrollView.frame = self.bounds;
+    CGRect scrollViewFrame = self.bounds;
+    scrollViewFrame.origin.x -= kGap;
+    scrollViewFrame.size.width += kGap;
+    self.scrollView.frame = scrollViewFrame;
 
     [self zoomView];
 
@@ -55,7 +60,6 @@
     relativeZoom = MIN(relativeZoom, 1.0);
     relativeZoom = MAX(relativeZoom, 0.0);
     return relativeZoom;
-
 }
 
 - (void)pushView:(UIView *)view {
@@ -63,7 +67,7 @@
     view.autoresizingMask = UIViewAutoresizingNone;
 
     CGRect frame = view.frame;
-    frame.origin.x = (int)CGRectGetMaxX(((UIView*)[_views lastObject]).frame) + 1.5;
+    frame.origin.x = (int)CGRectGetMaxX(((UIView*)[_views lastObject]).frame) + kGap;
     frame.origin.y = (int)0;
     view.frame = frame;
 

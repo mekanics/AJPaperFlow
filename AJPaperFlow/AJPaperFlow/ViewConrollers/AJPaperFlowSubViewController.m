@@ -17,8 +17,6 @@
 
 @property (nonatomic, strong) AJPaperFlowSubView *v;
 
-@property (nonatomic, strong) UIView *tappedSubview;
-
 @end
 
 @implementation AJPaperFlowSubViewController
@@ -54,7 +52,9 @@
     POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
     frameAnimation.toValue = [NSValue valueWithCGRect:frame];
     frameAnimation.springBounciness = 6.f;
-    [self.view pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
+    [_v pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
+
+    _v.scrollView.pagingEnabled = self.state.pagingEnabled;
 }
 
 - (void)setViewControllers:(NSArray *)viewControllers {
@@ -91,20 +91,6 @@
     _state = state;
 
     [self transitionToCurrentState];
-}
-
-#pragma mark - POPAnimationDelegate
-
-- (void)pop_animationDidApply:(POPAnimation *)anim {
-    if ([anim.name isEqualToString:@"tappedAnim"]) {
-        [_v.scrollView scrollRectToVisible:_tappedSubview.frame animated:NO];
-    }
-}
-
-- (void)pop_animationDidStop:(POPAnimation *)anim finished:(BOOL)finished {
-    if ([anim.name isEqualToString:@"tappedAnim"]) {
-        _tappedSubview = nil;
-    }
 }
 
 @end

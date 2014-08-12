@@ -18,6 +18,10 @@
     return f;
 }
 
+- (BOOL)pagingEnabled {
+    return YES;
+}
+
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
 
 }

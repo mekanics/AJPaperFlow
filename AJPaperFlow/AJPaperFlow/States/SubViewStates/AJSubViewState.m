@@ -29,6 +29,10 @@
     return CGRectZero;
 }
 
+- (BOOL)pagingEnabled {
+    return NO;
+}
+
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
     [self throwShouldOverrideExceptionInSelector:NSStringFromSelector(_cmd)];
 }

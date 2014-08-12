@@ -27,8 +27,6 @@
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
     self.context.state = [[AJSubViewFullScreenState alloc] initWithContext:self.context];
-
-    // TODO: scroll to view
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {

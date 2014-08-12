@@ -12,6 +12,7 @@
 @interface AJSubViewState : NSObject
 
 @property (nonatomic, readonly) CGRect frame;
+@property (nonatomic, readonly) BOOL pagingEnabled;
 @property (nonatomic, strong) AJPaperFlowSubViewController *context;
 
 - (instancetype)initWithContext:(AJPaperFlowSubViewController *)context;
