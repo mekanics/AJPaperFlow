@@ -1,7 +1,7 @@
 language: objective-c
 xcode_workspace: AJPaperFlow.xcworkspace
 xcode_scheme: AJPaperFlow
-xcode_sdk: iphonesimulator7.0
+xcode_sdk: iphonesimulator
 
 before_script:
   - export LANG=en_US.UTF-8
