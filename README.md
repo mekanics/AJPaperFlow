@@ -8,6 +8,8 @@
 
 `AJPaperFlow` will be available through [CocoaPods](http://cocoapods.org)
 
+![gif](https://raw.githubusercontent.com/mekanics/AJPaperFlow/master/img/ajpaperflow.gif)
+
 ## Usage
 
 ** TODO **
@@ -31,6 +33,7 @@
  - tests tests tests
  - handle scrollviews
  - some transitions
+ - animations
  - and much much more ...
 
 ## Contributing
